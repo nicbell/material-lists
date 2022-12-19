@@ -7,8 +7,9 @@ import org.junit.Rule
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
+@Suppress("UnnecessaryAbstractClass")
 @RunWith(Parameterized::class)
-open class SnapshotTest(nightMode: NightMode) {
+abstract class SnapshotTest(nightMode: NightMode) {
 
     @get:Rule
     val paparazzi = Paparazzi(
