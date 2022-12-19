@@ -32,6 +32,8 @@ jobs:
         run: ./gradlew lintDebug detekt
       - name: Unit tests
         run: ./gradlew testDebugUnitTest
+      - name: Paparazzi
+          run: ./gradlew listitem:verifyPaparazziDebug
       - name: Kover report
         run: ./gradlew koverMergedReport
 #      - name: Add coverage report to PR
