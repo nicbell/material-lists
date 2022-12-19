@@ -33,19 +33,9 @@ jobs:
       - name: Unit tests
         run: ./gradlew testDebugUnitTest
       - name: Paparazzi
-          run: ./gradlew listitem:verifyPaparazziDebug
+        run: ./gradlew listitem:verifyPaparazziDebug
       - name: Kover report
         run: ./gradlew koverMergedReport
-#      - name: Add coverage report to PR
-#        id: kover
-#        uses: mi-kas/kover-report@v1.2-beta
-#        with:
-#          path: ${{ github.workspace }}/build/reports/kover/merged/xml/report.xml
-#          token: ${{ secrets.GITHUB_TOKEN }}
-#          title: Code Coverage
-#          update-comment: true
-#          min-coverage-overall: 80
-#          min-coverage-changed-files: 80
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
