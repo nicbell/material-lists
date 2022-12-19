@@ -8,7 +8,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
-abstract class SnapshotTest(nightMode: NightMode) {
+open class SnapshotTest(nightMode: NightMode) {
 
     @get:Rule
     val paparazzi = Paparazzi(

@@ -72,6 +72,7 @@ class ListItemThreeLineTest(nightMode: NightMode) : SnapshotTest(nightMode) {
     companion object {
         private const val headlineText = "Headline"
         private const val supportText =
-            "Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text"
+            "Hello world I am a multi-line example of list item support text. " +
+                "Hello world I am a multi-line example of list item support text"
     }
 }

@@ -55,14 +55,14 @@ class ListItem @JvmOverloads constructor(
                 val trailingIconTint = getColorStateList(R.styleable.ListItem_trailingIconTint)
                 setTrailingIcon(trailingIconDrawable, trailingIconTint)
 
-                val leadingType = ListItemLeadingType.values()[getInt(
-                    R.styleable.ListItem_leadingType, ListItemLeadingType.None.ordinal
-                )]
+                val leadingType = ListItemLeadingType.values()[
+                    getInt(R.styleable.ListItem_leadingType, ListItemLeadingType.None.ordinal)
+                ]
                 setLeadingType(leadingType)
 
-                val trailingType = ListItemTrailingType.values()[getInt(
-                    R.styleable.ListItem_trailingType, ListItemTrailingType.None.ordinal
-                )]
+                val trailingType = ListItemTrailingType.values()[
+                    getInt(R.styleable.ListItem_trailingType, ListItemTrailingType.None.ordinal)
+                ]
                 setTrailingType(trailingType)
 
                 recycle()
@@ -82,10 +82,10 @@ class ListItem @JvmOverloads constructor(
                 supportText.isVisible = false
                 minHeight = resources.getDimensionPixelSize(R.dimen.list_item_min_height_one_line)
 
-                leadingIcon.constraintVerticalBias = 0.5f
-                trailingIcon.constraintVerticalBias = 0.5f
-                trailingCheckbox.constraintVerticalBias = 0.5f
-                headline.constraintVerticalBias = 0.5f
+                leadingIcon.constraintVerticalBias = CENTERED_VERTICAL_BIAS
+                trailingIcon.constraintVerticalBias = CENTERED_VERTICAL_BIAS
+                trailingCheckbox.constraintVerticalBias = CENTERED_VERTICAL_BIAS
+                headline.constraintVerticalBias = CENTERED_VERTICAL_BIAS
 
                 guideTop.setGuidelineBegin(resources.getDimensionPixelSize(R.dimen.space_x2))
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.space_x2))
@@ -94,10 +94,10 @@ class ListItem @JvmOverloads constructor(
                 supportText.isVisible = true
                 minHeight = resources.getDimensionPixelSize(R.dimen.list_item_min_height_two_line)
 
-                leadingIcon.constraintVerticalBias = 0.5f
-                trailingIcon.constraintVerticalBias = 0.5f
-                trailingCheckbox.constraintVerticalBias = 0.5f
-                headline.constraintVerticalBias = 0.5f
+                leadingIcon.constraintVerticalBias = CENTERED_VERTICAL_BIAS
+                trailingIcon.constraintVerticalBias = CENTERED_VERTICAL_BIAS
+                trailingCheckbox.constraintVerticalBias = CENTERED_VERTICAL_BIAS
+                headline.constraintVerticalBias = CENTERED_VERTICAL_BIAS
 
                 guideTop.setGuidelineBegin(resources.getDimensionPixelSize(R.dimen.space_x2))
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.space_x2))
@@ -106,10 +106,10 @@ class ListItem @JvmOverloads constructor(
                 supportText.isVisible = true
                 minHeight = resources.getDimensionPixelSize(R.dimen.list_item_min_height_three_line)
 
-                leadingIcon.constraintVerticalBias = 0f
-                trailingIcon.constraintVerticalBias = 0f
-                trailingCheckbox.constraintVerticalBias = 0f
-                headline.constraintVerticalBias = 0f
+                leadingIcon.constraintVerticalBias = TOP_VERTICAL_BIAS
+                trailingIcon.constraintVerticalBias = TOP_VERTICAL_BIAS
+                trailingCheckbox.constraintVerticalBias = TOP_VERTICAL_BIAS
+                headline.constraintVerticalBias = TOP_VERTICAL_BIAS
 
                 guideTop.setGuidelineBegin(resources.getDimensionPixelSize(R.dimen.space_x3))
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.space_x3))
@@ -166,5 +166,10 @@ class ListItem @JvmOverloads constructor(
 
     enum class ListItemLeadingType {
         None, Icon
+    }
+
+    companion object {
+        private const val CENTERED_VERTICAL_BIAS = 0.5f
+        private const val TOP_VERTICAL_BIAS = 0f
     }
 }
