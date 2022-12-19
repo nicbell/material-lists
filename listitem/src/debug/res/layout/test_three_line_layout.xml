@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.Material3.DayNight">
+
+    <net.nicbell.listitem.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text" />
+
+
+    <net.nicbell.listitem.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:leadingIcon="@drawable/ic_outline_person_24"
+        app:leadingType="ICON"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text" />
+
+    <net.nicbell.listitem.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:leadingIcon="@drawable/ic_outline_person_24"
+        app:leadingIconTint="?colorError"
+        app:leadingType="ICON"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text"
+        app:trailingType="CHECKBOX" />
+</LinearLayout>

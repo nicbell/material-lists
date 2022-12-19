@@ -1,0 +1,199 @@
+def semVer = new GitFlowSemanticVersion(project.projectDir, "patch")
+
+println "----- GitFlow Semantic Version -----"
+println "Latest released version: " + semVer.getLastRelease()
+println "Version name: " + semVer.getVersion()
+println "Version code: " + semVer.getVersionCode()
+println "Branch name: " + semVer.getBranchName()
+println "Commit: " + semVer.getCommit()
+println "-----"
+
+ext {
+    // Material Lists
+    material_lists_version_code = semVer.getVersionCode()
+    material_lists_version = semVer.getVersion()
+    material_lists_version_commit = semVer.getCommit()
+
+    // Used to name files
+    ci_version_name = "${material_lists_version}(${material_lists_version_code})-${material_lists_version_commit}"
+}
+
+/**
+ * When standing on an annotated tag commit, then version is simply the same as the tag (for example 1.0.0). This usually applies to 'master'.
+ * After a few commits git describe will show something like 1.0.0-5-g5242341 in which case the version is the snapshot of the next version.
+ *
+ * The next version is controlled by the 'nextVersion' property.
+ * Supply 'patch' and the version will be 1.0.1-SNAPSHOT.
+ * Supply 'minor' and the version will be 1.1.0-SNAPSHOT.
+ * Supply 'major' and the version will be 2.0.0-SNAPSHOT.
+ *
+ * When committing on 'release' branches the version is acquired from the branch name.
+ * On 'release/1.2.3' the version will 1.2.3 regardless of the amount of commits since the last annotated tag commit.
+ */
+class GitFlowSemanticVersion {
+
+    private File projectDir = null
+    private String defaultNextVersion = "patch"
+
+    GitFlowSemanticVersion(File projectDir = null, String defaultNextVersion) {
+        this.projectDir = projectDir
+        this.defaultNextVersion = defaultNextVersion
+    }
+
+    /**
+     * Returns current version code based on GitFlow semantic versioning
+     */
+    int getVersionCode() {
+        def versionParts = parseVersion(getVersion())
+        def gitCommitsNumber = 0
+
+        def proc = ("git describe --tags").execute(null, projectDir)
+        proc.waitFor()
+        if (proc.exitValue() == 0) {
+            def describe = proc.text.trim()
+            if (describe.split("-").length > 1) {
+                gitCommitsNumber = Integer.valueOf(describe.split("-")[1])
+            }
+        }
+
+        return Integer.valueOf(versionParts[0] * 10000000 + versionParts[1] * 100000 +
+                versionParts[2] * 1000) + gitCommitsNumber
+    }
+
+    /**
+     * Returns current version name based on GitFlow semantic versioning
+     */
+    String getVersion() {
+        def nextVersion = defaultNextVersion
+        def snapshotSuffix = "SNAPSHOT"
+        def dirtyMarker = "-dirty"
+        def gitDescribeArgs = '--match *[0-9].[0-9]*.[0-9]*'
+
+        def branchName = getBranchName().toLowerCase()
+
+        if (branchName.contains("release")) {
+            nextVersion = formatVersion(parseVersion(branchName.split('/')[1]))
+        }
+
+        return getGitVersion(nextVersion, snapshotSuffix, dirtyMarker, gitDescribeArgs, projectDir)
+    }
+
+    /**
+     * Returns name of last tagged release
+     */
+    String getLastRelease() {
+        def proc = ("git describe --tags").execute(null, projectDir)
+        proc.waitFor()
+        if (proc.exitValue() == 0) {
+            def describe = proc.text.trim()
+            return describe.split("-")[0]
+        }
+        return "0.0.0"
+    }
+
+    String getBranchName() {
+        def proc = ("git branch --show-current").execute(null, projectDir)
+        proc.waitFor()
+        if (proc.exitValue() == 0) {
+            def branch = proc.text.trim()
+            return branch
+        }
+        if (System.getenv("CI_BUILD_REF_NAME") != null) {
+            return System.getenv("CI_BUILD_REF_NAME")
+        }
+
+        return ""
+    }
+
+    String getCommit() {
+        def proc = ("git rev-parse --short HEAD").execute(null, projectDir)
+        proc.waitFor()
+        if (proc.exitValue() == 0) {
+            def branch = proc.text.trim()
+            return branch
+        }
+        if (System.getenv("CI_COMMIT_SHA") != null) {
+            return System.getenv("CI_COMMIT_SHA")
+        }
+
+        return ""
+    }
+
+    private static String getGitVersion(String nextVersion, String snapshotSuffix, String dirtyMarker, String gitArgs, File projectDir = null) {
+        def proc = ("git describe --tags --exact-match " + gitArgs).execute(null, projectDir)
+        proc.waitFor()
+        if (proc.exitValue() == 0) {
+            return checkVersion(proc.text.trim())
+        }
+        proc = ("git describe --tags --dirty --abbrev=7 " + gitArgs).execute(null, projectDir)
+        proc.waitFor()
+        if (proc.exitValue() == 0) {
+            def describe = proc.text.trim()
+            def dirty = describe.endsWith('-dirty')
+            if (dirty) {
+                describe = describe.substring(0, describe.length() - 6)
+            }
+            def version = (describe =~ /-[0-9]+-g[0-9a-f]+$/).replaceFirst("")
+            def suffixMatcher = (describe =~ /-([0-9]+)-g([0-9a-f]+)$/)
+            def count = suffixMatcher[0][1]
+            def sha = suffixMatcher[0][2]
+            def suffix = snapshotSuffix
+            suffix = suffix.replaceAll("<count>", count)
+            suffix = suffix.replaceAll("<sha>", sha)
+            suffix = suffix.replaceAll("<dirty>", dirty ? dirtyMarker : '')
+            return getNextVersion(version, nextVersion, suffix)
+        }
+        return getNextVersion("0.0.0", nextVersion, "SNAPSHOT")
+    }
+
+    private static String checkVersion(String version) {
+        parseVersion(version)
+        return version
+    }
+
+    private static Object[] parseVersion(String version) {
+        def pattern = /^([0-9]+)\.([0-9]+)\.([0-9]+)(-([a-zA-Z0-9.-]+))?$/
+        def matcher = version =~ pattern
+        def arr = matcher.collect { it }[0]
+        if (arr == null) {
+            throw new IllegalArgumentException("Not a valid version: '" + version + "'")
+        }
+        return [arr[1].toInteger(), arr[2].toInteger(), arr[3].toInteger(), arr[5]]
+    }
+
+    private static String formatVersion(version) {
+        return "" + version[0] + "." + version[1] + "." + version[2] + (version[3] != null ? "-" + version[3] : "")
+    }
+
+    private static String getNextVersion(String version, String nextVersion, String snapshotSuffix) {
+        def v
+        switch (nextVersion) {
+            case "major":
+                v = parseVersion(version)
+                if (v[3] == null) {
+                    v[0] += 1
+                    v[1] = 0
+                    v[2] = 0
+                }
+                v[3] = snapshotSuffix
+                return formatVersion(v)
+            case "minor":
+                v = parseVersion(version)
+                if (v[3] == null) {
+                    v[1] += 1
+                    v[2] = 0
+                }
+                v[3] = snapshotSuffix
+                return formatVersion(v)
+            case "patch":
+                v = parseVersion(version)
+                if (v[3] == null) {
+                    v[2] += 1
+                }
+                v[3] = snapshotSuffix
+                return formatVersion(v)
+            default:
+                return checkVersion(nextVersion)
+        }
+    }
+}

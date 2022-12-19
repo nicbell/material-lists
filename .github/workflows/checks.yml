@@ -1,0 +1,57 @@
+# Run tests on every pull request
+# Run tests on every commit into `main` or `develop`
+name: Android CI checks
+
+on:
+  pull_request:
+    branches: [ "main", "develop" ]
+  push:
+    branches: [ "main", "develop" ]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Static analysis
+        run: ./gradlew lintDebug detekt
+      - name: Unit tests
+        run: ./gradlew testDebugUnitTest
+      - name: Kover report
+        run: ./gradlew koverMergedReport
+#      - name: Add coverage report to PR
+#        id: kover
+#        uses: mi-kas/kover-report@v1.2-beta
+#        with:
+#          path: ${{ github.workspace }}/build/reports/kover/merged/xml/report.xml
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          title: Code Coverage
+#          update-comment: true
+#          min-coverage-overall: 80
+#          min-coverage-changed-files: 80
+      - name: Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./build/reports/kover/merged/xml/report.xml
+          flags: unittests
+          verbose: true
+      - name: Upload reports
+        uses: actions/upload-artifact@v3
+        with:
+          path: "**/build/reports/**"
+          retention-days: 7

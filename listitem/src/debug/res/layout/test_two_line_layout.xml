@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.Material3.DayNight">
+
+    <net.nicbell.listitem.ListItem
+        style="@style/MaterialAlertDialog.Material3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:leadingType="NONE"
+        app:sizeType="TWO_LINES"
+        app:supportText="Support text"
+        app:trailingType="NONE" />
+
+    <net.nicbell.listitem.ListItem
+        style="@style/MaterialAlertDialog.Material3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:leadingIcon="@drawable/ic_outline_person_24"
+        app:leadingType="ICON"
+        app:sizeType="TWO_LINES"
+        app:supportText="Support text"
+        app:trailingIcon="@drawable/ic_baseline_arrow_right_24"
+        app:trailingType="ICON" />
+
+    <net.nicbell.listitem.ListItem
+        style="@style/MaterialAlertDialog.Material3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:leadingIcon="@drawable/ic_outline_person_24"
+        app:leadingIconTint="?colorError"
+        app:leadingType="ICON"
+        app:sizeType="TWO_LINES"
+        app:supportText="Support text"
+        app:trailingIcon="@drawable/ic_baseline_arrow_right_24"
+        app:trailingIconTint="?colorError"
+        app:trailingType="ICON" />
+
+    <net.nicbell.listitem.ListItem
+        style="@style/MaterialAlertDialog.Material3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:leadingIcon="@drawable/ic_outline_person_24"
+        app:leadingType="ICON"
+        app:sizeType="TWO_LINES"
+        app:supportText="Support text"
+        app:trailingType="CHECKBOX" />
+</LinearLayout>
