@@ -1,4 +1,4 @@
-package net.nicbell.listitem
+package net.nicbell.materiallists
 
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi

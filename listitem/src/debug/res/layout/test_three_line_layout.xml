@@ -6,31 +6,63 @@
     android:orientation="vertical"
     android:theme="@style/Theme.Material3.DayNight">
 
-    <net.nicbell.listitem.ListItem
+    <net.nicbell.materiallists.ListItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
         app:sizeType="THREE_LINES"
         app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text" />
 
-
-    <net.nicbell.listitem.ListItem
+    <net.nicbell.materiallists.ListItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:leadingIcon="@drawable/ic_outline_person_24"
-        app:leadingType="ICON"
         app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text" />
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
 
-    <net.nicbell.listitem.ListItem
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:leadingIcon="@drawable/ic_outline_person_24"
-        app:leadingIconTint="?colorError"
-        app:leadingType="ICON"
         app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text"
-        app:trailingType="CHECKBOX" />
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            style="@style/MaterialLists.TrailingCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24"
+            app:tint="?colorError" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            style="@style/MaterialLists.TrailingRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </net.nicbell.materiallists.ListItem>
 </LinearLayout>

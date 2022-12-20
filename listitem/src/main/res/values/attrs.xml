@@ -9,22 +9,10 @@
             <enum name="TWO_LINES" value="1" />
             <enum name="THREE_LINES" value="2" />
         </attr>
+    </declare-styleable>
 
-        <attr name="leadingIcon" format="reference|color" />
-        <attr name="leadingIconTint" format="color" />
-        <attr name="trailingIcon" format="reference|color" />
-        <attr name="trailingIconTint" format="color" />
-
-        <attr name="leadingType" format="enum">
-            <enum name="NONE" value="0" />
-            <enum name="ICON" value="1" />
-        </attr>
-
-        <attr name="trailingType" format="enum">
-            <enum name="NONE" value="0" />
-            <enum name="ICON" value="1" />
-            <enum name="CHECKBOX" value="2" />
-            <enum name="META" value="3" />
-        </attr>
+    <declare-styleable name="ListItem_Layout">
+        <attr name="isMaterialListTrailingContent" format="boolean" />
+        <attr name="isMaterialListLeadingContent" format="boolean" />
     </declare-styleable>
 </resources>

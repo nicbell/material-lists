@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace 'net.nicbell.listitem'
+    namespace 'net.nicbell.materiallists'
     compileSdk compile_sdk_version
 
     defaultConfig {

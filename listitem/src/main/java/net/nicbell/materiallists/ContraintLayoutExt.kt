@@ -1,4 +1,4 @@
-package net.nicbell.listitem
+package net.nicbell.materiallists
 
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
