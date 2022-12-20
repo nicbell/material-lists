@@ -15,7 +15,7 @@ abstract class SnapshotTest(nightMode: NightMode) {
     val paparazzi = Paparazzi(
         deviceConfig = DeviceConfig.PIXEL_4A.copy(
             nightMode = nightMode,
-            softButtons = false
+            softButtons = false,
         ),
         theme = "Theme.Material3.DayNight.NoActionBar",
         maxPercentDifference = 0.0
