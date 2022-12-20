@@ -5,6 +5,8 @@
 
 An Android XML implementation of Material 3 list items.
 
+<img src="https://user-images.githubusercontent.com/151842/208748928-6e299e55-c38f-44f3-874a-05fe192d67c2.gif" width="340" />
+
 ## 🙋🏽 Why
 
 Material lists are available in Jetpack Compose but were never implemented in XML. This is a tiny
