@@ -1,0 +1,41 @@
+# Using buildUponDefaultConfig means we only need to specify the rules the we want to change
+
+complexity:
+  CyclomaticComplexMethod:
+    active: true
+    ignoreSimpleWhenEntries: true
+  LargeClass:
+    excludes: [ '**/test/**' ]
+  TooManyFunctions:
+    excludes: [ '**/test/**' ]
+
+empty-blocks:
+  EmptyFunctionBlock:
+    active: true
+    ignoreOverridden: true
+
+formatting:
+  FinalNewline:
+    active: false
+  Indentation:
+    autoCorrect: true
+    active: true
+  NoWildcardImports:
+    active: false
+  MaximumLineLength:
+    autoCorrect: true
+    ignoreBackTickedIdentifier: true
+
+style:
+  NewLineAtEndOfFile:
+    active: false
+  WildcardImport:
+    active: false
+  MaxLineLength:
+    active: true
+    excludeCommentStatements: true
+    ignoreAnnotated: [ 'Test' ]
+  RedundantExplicitType:
+    active: true
+  UnusedPrivateMember:
+    active: true

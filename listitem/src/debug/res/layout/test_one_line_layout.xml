@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.Material3.DayNight">
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline" />
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.TrailingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_right_24" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            style="@style/MaterialLists.TrailingCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.TrailingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_right_24" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24"
+            app:tint="?colorError" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            style="@style/MaterialLists.TrailingCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            style="@style/MaterialLists.TrailingRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            style="@style/MaterialLists.TrailingSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </net.nicbell.materiallists.ListItem>
+</LinearLayout>

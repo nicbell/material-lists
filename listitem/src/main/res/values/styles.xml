@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MaterialLists" />
+
+    <style name="MaterialLists.LeadingIcon">
+        <item name="isMaterialListLeadingContent">true</item>
+        <item name="tint">?colorOnSurfaceVariant</item>
+        <item name="android:maxWidth">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+        <item name="layout_constraintStart_toStartOf">@id/guide_start</item>
+        <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
+        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x4</item>
+    </style>
+
+    <style name="MaterialLists.TrailingIcon">
+        <item name="isMaterialListTrailingContent">true</item>
+        <item name="tint">?colorOnSurfaceVariant</item>
+        <item name="android:maxWidth">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+        <item name="layout_constraintStart_toEndOf">@id/barrier_text_end</item>
+        <item name="layout_constraintEnd_toEndOf">@id/guide_end</item>
+        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x4</item>
+    </style>
+
+    <style name="MaterialLists.TrailingCheckbox">
+        <item name="isMaterialListTrailingContent">true</item>
+        <item name="layout_constraintStart_toEndOf">@id/barrier_text_end</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x3</item>
+    </style>
+
+    <style name="MaterialLists.TrailingRadioButton">
+        <item name="isMaterialListTrailingContent">true</item>
+        <item name="layout_constraintStart_toEndOf">@id/barrier_text_end</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x1</item>
+    </style>
+
+    <style name="MaterialLists.TrailingSwitch">
+        <item name="isMaterialListTrailingContent">true</item>
+        <item name="layout_constraintStart_toEndOf">@id/barrier_text_end</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x2</item>
+    </style>
+</resources>

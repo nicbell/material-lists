@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ListItem">
+        <attr name="headline" format="string" />
+        <attr name="supportText" format="string" />
+
+        <attr name="sizeType" format="enum">
+            <enum name="ONE_LINE" value="0" />
+            <enum name="TWO_LINES" value="1" />
+            <enum name="THREE_LINES" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ListItem_Layout">
+        <attr name="isMaterialListTrailingContent" format="boolean" />
+        <attr name="isMaterialListLeadingContent" format="boolean" />
+    </declare-styleable>
+</resources>

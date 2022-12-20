@@ -1,0 +1,43 @@
+/**
+ * GitHub Maven repo config
+ * You will need to generate a personal access token and configure your 'local.properties' file like this:
+ * githubName=username
+ * githubToken=XXX
+ *
+ * This will enable you to use our private GitHub Maven repository:
+ * repositories {
+ *   configure(materialLists)
+ * }
+ */
+
+def github_user = ""
+def github_token = ""
+
+// Running on CI
+if (System.getenv("GITHUB_ACTOR") && System.getenv("GITHUB_TOKEN")) {
+    github_user = System.getenv("GITHUB_ACTOR")
+    github_token = System.getenv("GITHUB_TOKEN")
+}
+// Running locally
+else if (this.file('local.properties').isFile()) {
+    Properties properties = new Properties()
+    properties.load(this.file('local.properties').newDataInputStream())
+
+    if (!properties.getProperty('githubName') && !properties.getProperty('githubToken')) {
+        println 'Please configure "githubName" & "githubToken" in local.properties.'
+    }
+
+    github_user = properties.getProperty('githubName')
+    github_token = properties.getProperty('githubToken')
+}
+
+ext.mavenMaterialLists = {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/nicbell/material-lists")
+        credentials {
+            username = github_user
+            password = github_token
+        }
+    }
+}

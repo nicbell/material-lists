@@ -1,0 +1,22 @@
+/**
+ * Detekt
+ * Usage:
+ * ./gradlew detekt
+ */
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    config = rootProject.files("config/detekt.yml")
+    ignoreFailures = false
+    basePath = rootDir.toString()
+}
+
+tasks.named("detekt").configure {
+    basePath = rootDir.toString()
+}

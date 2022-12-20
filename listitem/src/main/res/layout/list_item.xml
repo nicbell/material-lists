@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:backgroundTint="?colorSurface"
+    android:clickable="true"
+    android:focusable="true"
+    android:minHeight="@dimen/list_item_min_height_two_line"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    tools:theme="@style/Theme.Material3.DayNight">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_begin="@dimen/list_item_space_x4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_end="@dimen/list_item_space_x6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_begin="@dimen/list_item_space_x2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_end="@dimen/list_item_space_x2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_text_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierAllowsGoneWidgets="true"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="guide_start" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_text_end"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierAllowsGoneWidgets="false"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="guide_end" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_headline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="?textAppearanceBodyLarge"
+        android:textColor="?colorOnSurface"
+        app:firstBaselineToTopHeight="@dimen/list_item_headline_first_baseline_to_top"
+        app:lastBaselineToBottomHeight="@dimen/list_item_headline_last_baseline_to_bottom"
+        app:layout_constraintBottom_toTopOf="@+id/txt_support"
+        app:layout_constraintEnd_toStartOf="@id/barrier_text_end"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/barrier_text_start"
+        app:layout_constraintTop_toTopOf="@id/guide_top"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Headline text" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_support"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="?textAppearanceBodyMedium"
+        android:textColor="?colorOnSurfaceVariant"
+        app:firstBaselineToTopHeight="@dimen/list_item_supporting_text_first_baseline_to_top"
+        app:lastBaselineToBottomHeight="@dimen/list_item_supporting_text_last_baseline_to_bottom"
+        app:layout_constraintBottom_toBottomOf="@id/guide_bottom"
+        app:layout_constraintEnd_toEndOf="@id/txt_headline"
+        app:layout_constraintStart_toStartOf="@id/txt_headline"
+        app:layout_constraintTop_toBottomOf="@id/txt_headline"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Support text" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:dividerColor="?colorSurfaceVariant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_start" />
+</merge>

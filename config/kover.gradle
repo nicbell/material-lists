@@ -1,0 +1,103 @@
+def koverExcludes = ["*BuildConfig"]
+
+koverMerged {
+    enable()
+    filters {
+        classes {
+            excludes.addAll(koverExcludes)
+        }
+    }
+    verify {
+        rule {
+            enabled = true
+            name = "Minimum coverage"
+            target = 'ALL'
+            bound {
+                minValue = 75
+                maxValue = 100
+                counter = 'LINE' // change coverage metric to evaluate (LINE, INSTRUCTION, BRANCH)
+                valueType = 'COVERED_PERCENTAGE'
+            }
+        }
+    }
+}
+
+subprojects {
+    apply plugin: "kover"
+    kover {
+        filters {
+            classes {
+                excludes.addAll(koverExcludes)
+            }
+        }
+        instrumentation {
+            excludeTasks.add "testReleaseUnitTest"
+            // exclude testReleaseUnitTest from instrumentation
+        }
+    }
+}
+
+
+// ./gradlew koverDump -q
+def magenta = "\u001B[35m"
+def normal = "\u001B[0m"
+
+tasks.register("koverDump") {
+    dependsOn 'koverMergedReport'
+    doLast {
+        println "${magenta}Kover Console Dump${normal}"
+
+        def slurp = new groovy.xml.XmlSlurper()
+        slurp.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)
+        slurp.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
+
+        def reportFile = file("${buildDir}/reports/kover/merged/xml/report.xml")
+        def reportParsed = slurp.parseText(reportFile.getText('UTF-8'))
+
+        reportParsed.'*'
+                .findAll { it.name() == 'counter' }
+                .collect { counter ->
+                    int percentage = counter.@covered.toInteger() / (counter.@missed.toInteger() + counter.@covered.toInteger()) * 100
+                    println "Coverage ${counter.@type.toString()} $percentage%"
+                    println "- Covered ${counter.@covered.toInteger()}/${counter.@missed.toInteger() + counter.@covered.toInteger()}"
+                }
+
+        def codeQualityTemplate = new File(projectDir, "config/codecoverage-template.html").text
+        def reportHtml = ""
+        def metrics = ""
+
+        project.subprojects.findAll { it.file("build.gradle").exists() }.forEach { module ->
+            def moduleReportFile = file("${module.buildDir}/reports/kover/xml/report.xml")
+            int percentage = 0
+
+            if (moduleReportFile.exists()) {
+                def moduleReportParsed = slurp.parseText(moduleReportFile.getText('UTF-8'))
+
+                moduleReportParsed.'*'
+                        .findAll { it.name() == 'counter' && it.@type.toString() == "INSTRUCTION" }
+                        .collect { counter ->
+                            percentage = counter.@covered.toInteger() / (counter.@missed.toInteger() + counter.@covered.toInteger()) * 100
+                        }
+                metrics += "code-coverage${module.path} $percentage\n"
+            }
+            reportHtml += getModuleReportHtml(module, moduleReportFile.exists(), percentage)
+        }
+
+        new File(projectDir, "build/reports").mkdirs() // in-case the directory doesn't exist.
+        new File(projectDir, "build/reports/metrics.txt").text = metrics
+        new File(projectDir, "build/reports/codecoverage.html").text = codeQualityTemplate.replace("\$codeQuality", reportHtml)
+    }
+}
+
+private static String getModuleReportHtml(Project module, Boolean hasReport, int percentage) {
+    def modulePath = new File(module.rootDir, "build/reports/").relativePath(module.projectDir)
+
+    if (hasReport) {
+        return "<tr><td><code>${module.path}</code></td>" +
+                "<td><a href=\"$modulePath/build/reports/kover/html/index.html\">Report</a></td><td>$percentage%</td></tr>"
+    } else {
+        return "<tr><td><code>${module.path}</code></td>" +
+                "<td><span class=\"glyphicon glyphicon glyphicon-remove text-danger\" aria-hidden=\"true\"></span></td>" +
+                "<td><span class=\"glyphicon glyphicon glyphicon-minus \" aria-hidden=\"true\"></span></td></tr>"
+    }
+}

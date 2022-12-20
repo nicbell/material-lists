@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_min_height_one_line">56dp</dimen>
+    <dimen name="list_item_min_height_two_line">72dp</dimen>
+    <dimen name="list_item_min_height_three_line">88dp</dimen>
+
+    <!-- Line heights -->
+    <dimen name="list_item_headline_first_baseline_to_top">17dp</dimen>
+    <dimen name="list_item_headline_last_baseline_to_bottom">7dp</dimen>
+    <dimen name="list_item_supporting_text_first_baseline_to_top">15dp</dimen>
+    <dimen name="list_item_supporting_text_last_baseline_to_bottom">5dp</dimen>
+
+    <!-- Spacing -->
+    <dimen name="list_item_space_x1">4dp</dimen>
+    <dimen name="list_item_space_x2">8dp</dimen>
+    <dimen name="list_item_space_x3">12dp</dimen>
+    <dimen name="list_item_space_x4">16dp</dimen>
+    <dimen name="list_item_space_x6">24dp</dimen>
+</resources>
