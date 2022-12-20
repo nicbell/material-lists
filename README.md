@@ -101,7 +101,8 @@ position the content correctly within the `ListItem`.
 
 ```xml
 
-<net.nicbell.materiallists.ListItem android:layout_width="match_parent"
+<net.nicbell.materiallists.ListItem 
+    android:layout_width="match_parent"
     android:layout_height="wrap_content" 
     app:headline="Headline" 
     app:sizeType="TWO_LINES"
