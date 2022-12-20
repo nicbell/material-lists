@@ -2,7 +2,7 @@
 
 echo "Releasing: $1"
 
-projectUrl="https://github.com/nicbell/emveeaye"
+projectUrl="https://github.com/nicbell/material-lists"
 mr="$projectUrl/compare/main...release/$1"
 
 # Create release branch, tag, push
