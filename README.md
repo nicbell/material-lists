@@ -66,3 +66,45 @@ githubToken="xxx"
 </details>
 
 ## 🏄🏽 Usage
+
+Add the `ListItem` component to your layout.
+
+### Attributes
+
+The following attributes can be changed for a `ListItem`:
+
+| Description                                                                                              | Relevant attributes |
+|----------------------------------------------------------------------------------------------------------|---------------------|
+| Headline text                                                                                            | `app:head`          |
+| Supporting text                                                                                          | `app:supportText`   |
+| Size type - 1, 2 or 3 lines as per [design documentation](https://m3.material.io/components/lists/specs) | `app:sizeType`      |
+
+### Content
+
+Leading and trailing content can be added as child views. A content style is require in order to
+position the content correctly within the `ListItem`.
+
+| Description  | Style                       | Required view type   |
+|--------------|-----------------------------|----------------------|
+| Leading icon | `MaterialLists.LeadingIcon` | `AppCompatImageView` |
+
+### Example
+
+```xml
+
+<net.nicbell.materiallists.ListItem android:layout_width="match_parent"
+    android:layout_height="wrap_content" app:headline="Headline" app:sizeType="TWO_LINES"
+    app:supportText="Support text">
+
+    <androidx.appcompat.widget.AppCompatImageView style="@style/MaterialLists.LeadingIcon"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:src="@drawable/ic_outline_person_24" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        style="@style/MaterialLists.TrailingCheckbox" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</net.nicbell.materiallists.ListItem>
+```
+
+Which will output the following.
+![doc/img.png](docs/img.png)
