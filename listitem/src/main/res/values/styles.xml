@@ -53,6 +53,6 @@
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
-        <item name="android:layout_marginEnd">@dimen/list_item_space_x2</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x5</item>
     </style>
 </resources>

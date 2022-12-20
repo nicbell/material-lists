@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline" />
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.TrailingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.TrailingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                style="@style/MaterialLists.TrailingCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                style="@style/MaterialLists.TrailingRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                style="@style/MaterialLists.TrailingSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                style="@style/MaterialLists.TrailingSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/list_item_space_x6"
+            app:headline="@string/headline"
+            app:sizeType="TWO_LINES"
+            app:supportText="@string/supporting" />
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline"
+            app:sizeType="TWO_LINES"
+            app:supportText="@string/supporting">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.TrailingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline"
+            app:sizeType="TWO_LINES"
+            app:supportText="@string/supporting">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.TrailingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline"
+            app:sizeType="TWO_LINES"
+            app:supportText="@string/supporting">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                style="@style/MaterialLists.TrailingCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline"
+            app:sizeType="TWO_LINES"
+            app:supportText="@string/supporting">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                style="@style/MaterialLists.TrailingRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline"
+            app:sizeType="TWO_LINES"
+            app:supportText="@string/supporting">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                style="@style/MaterialLists.TrailingSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+
+        <net.nicbell.materiallists.ListItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headline="@string/headline"
+            app:sizeType="TWO_LINES"
+            app:supportText="@string/supporting">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/MaterialLists.LeadingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_outline_24" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                style="@style/MaterialLists.TrailingSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
+        </net.nicbell.materiallists.ListItem>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
