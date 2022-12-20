@@ -5,6 +5,8 @@
 
 An Android XML implementation of Material 3 list items.
 
+<img src="https://user-images.githubusercontent.com/151842/208748928-6e299e55-c38f-44f3-874a-05fe192d67c2.gif" width="340" />
+
 ## 🙋🏽 Why
 
 Material lists are available in Jetpack Compose but were never implemented in XML. This is a tiny
@@ -66,3 +68,62 @@ githubToken="xxx"
 </details>
 
 ## 🏄🏽 Usage
+
+Add the `ListItem` component to your layout.
+
+### Attributes
+
+The following attributes can be changed for a `ListItem`.
+
+| Description                 | Relevant attributes |
+|-----------------------------|---------------------|
+| Headline text               | `app:head`          |
+| Supporting text             | `app:supportText`   |
+| Size type - 1, 2 or 3 lines | `app:sizeType`      |
+
+For more info about size types see
+the [design documentation](https://m3.material.io/components/lists/specs).
+
+### Content
+
+Leading and trailing content can be added as child views. A content style is require in order to
+position the content correctly within the `ListItem`.
+
+| Description           | Style                               | Required view type    |
+|-----------------------|-------------------------------------|-----------------------|
+| Leading icon          | `MaterialLists.LeadingIcon`         | `AppCompatImageView`  |
+| Trailing icon         | `MaterialLists.TrailingIcon`        | `AppCompatImageView`  |
+| Trailing checkbox     | `MaterialLists.TrailingCheckbox`    | `MaterialCheckBox`    |
+| Trailing radio button | `MaterialLists.TrailingRadioButton` | `MaterialRadioButton` |
+| Trailing switch       | `MaterialLists.TrailingSwitch`      | `SwitchMaterial`      |
+
+### Example
+
+```xml
+
+<net.nicbell.materiallists.ListItem android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    app:headline="Headline" 
+    app:sizeType="TWO_LINES"
+    app:supportText="Support text">
+
+    <androidx.appcompat.widget.AppCompatImageView 
+        style="@style/MaterialLists.LeadingIcon"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_outline_person_24" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        style="@style/MaterialLists.TrailingCheckbox" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</net.nicbell.materiallists.ListItem>
+```
+
+Which will output the following.
+
+<img src="docs/img.png" width="340" />
+
+### Coming soon
+
+The rest of the leading and trailing content from the design documentation.
