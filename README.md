@@ -1,5 +1,8 @@
 # Material Lists
 
+[![JitPack](https://jitpack.io/v/net.nicbell/material-lists.svg)](https://jitpack.io/#net.nicbell/material-lists)
+[![codecov](https://codecov.io/gh/nicbell/material-lists/branch/develop/graph/badge.svg?token=YYJ348RZAF)](https://codecov.io/gh/nicbell/material-lists)
+
 An Android XML implementation of Material 3 list items.
 
 ## 🙋🏽 Why
