@@ -20,8 +20,18 @@ I have had to re-implement this layout so many times that I have decided to open
 Include the dependency in your project.
 
 ```groovy
+// via GitHub
 implementation "net.nicbell.material-lists:listitem:x.x.x"
+// via JitPack
+implementation 'net.nicbell:material-lists:x.x.x'
 ```
+The name is different as JitPack automatically shortens the name when there is a single artifact.
+
+> To get individual artifacts of multi-module builds use com.github.User.Repo as group Id and
+> ModuleName as the artifact Id `com.github.User.Repo:Module:Tag`.
+>
+> Note: If your project only has a single module then the dependency for that module is
+> just `com.github.User:Repo:Tag`.
 
 In order to download the dependency please make sure access to the Maven repository is configured.
 You can use JitPack or GitHub.
