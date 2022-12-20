@@ -15,5 +15,6 @@
     <dimen name="list_item_space_x2">8dp</dimen>
     <dimen name="list_item_space_x3">12dp</dimen>
     <dimen name="list_item_space_x4">16dp</dimen>
+    <dimen name="list_item_space_x5">20dp</dimen>
     <dimen name="list_item_space_x6">24dp</dimen>
 </resources>
