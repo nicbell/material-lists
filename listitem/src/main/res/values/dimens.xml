@@ -9,6 +9,8 @@
     <dimen name="list_item_headline_last_baseline_to_bottom">7dp</dimen>
     <dimen name="list_item_supporting_text_first_baseline_to_top">15dp</dimen>
     <dimen name="list_item_supporting_text_last_baseline_to_bottom">5dp</dimen>
+    <dimen name="list_item_trailing_supporting_text_first_baseline_to_top">12dp</dimen>
+    <dimen name="list_item_trailing_supporting_text_last_baseline_to_bottom">4dp</dimen>
 
     <!-- Spacing -->
     <dimen name="list_item_space_x1">4dp</dimen>
