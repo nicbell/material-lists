@@ -144,3 +144,5 @@ Which will output the following.
 ### Demo
 
 There is a demo app included with many examples.
+
+<img src="docs/demo.webp" width="340" />
