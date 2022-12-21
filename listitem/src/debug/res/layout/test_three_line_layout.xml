@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:theme="@style/Theme.Material3.DayNight">
+    android:theme="@style/Theme.Material3.DayNight"
+    tools:ignore="HardcodedText">
 
     <net.nicbell.materiallists.ListItem
         android:layout_width="match_parent"
@@ -64,5 +66,92 @@
             style="@style/MaterialLists.TrailingRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24"
+            app:tint="?colorError" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/MaterialLists.TrailingSupportingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100+" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            style="@style/MaterialLists.LeadingAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/MaterialLists.LeadingAvatarLabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/MaterialLists.TrailingSupportingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100+" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/place_holder" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/MaterialLists.TrailingSupportingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100+" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:sizeType="THREE_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingVideoThumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@drawable/place_holder_wide" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/MaterialLists.TrailingSupportingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100+" />
     </net.nicbell.materiallists.ListItem>
 </LinearLayout>

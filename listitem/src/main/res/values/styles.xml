@@ -1,17 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="MaterialLists" />
 
     <style name="MaterialLists.LeadingIcon">
         <item name="isMaterialListLeadingContent">true</item>
         <item name="tint">?colorOnSurfaceVariant</item>
-        <item name="android:maxWidth">24dp</item>
-        <item name="android:maxHeight">24dp</item>
+        <item name="layout_constraintWidth_max">24dp</item>
+        <item name="layout_constraintWidth_min">24dp</item>
+        <item name="layout_constraintHeight_max">24dp</item>
+        <item name="layout_constraintHeight_min">24dp</item>
         <item name="layout_constraintStart_toStartOf">@id/guide_start</item>
         <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
         <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
         <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
         <item name="android:layout_marginEnd">@dimen/list_item_space_x4</item>
+    </style>
+
+    <style name="MaterialLists.LeadingCheckbox">
+        <item name="isMaterialListLeadingContent">true</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
+        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x1</item>
+    </style>
+
+    <style name="MaterialLists.LeadingImage">
+        <item name="isMaterialListLeadingContent">true</item>
+        <item name="layout_constraintWidth_max">56dp</item>
+        <item name="layout_constraintWidth_min">56dp</item>
+        <item name="layout_constraintHeight_max">56dp</item>
+        <item name="layout_constraintHeight_min">56dp</item>
+        <item name="layout_constraintStart_toStartOf">@id/guide_start</item>
+        <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
+        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x4</item>
+    </style>
+
+    <style name="MaterialLists.LeadingVideoThumbnail">
+        <item name="isMaterialListLeadingContent">true</item>
+        <item name="layout_constraintWidth_max">114dp</item>
+        <item name="layout_constraintWidth_min">114dp</item>
+        <item name="layout_constraintHeight_max">64dp</item>
+        <item name="layout_constraintHeight_min">64dp</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x4</item>
+        <item name="android:layout_marginTop">@dimen/list_item_space_x3</item>
+        <item name="android:layout_marginBottom">@dimen/list_item_space_x3</item>
+    </style>
+
+    <style name="MaterialLists.LeadingAvatar">
+        <item name="isMaterialListLeadingContent">true</item>
+        <item name="layout_constraintWidth_max">40dp</item>
+        <item name="layout_constraintWidth_min">40dp</item>
+        <item name="layout_constraintHeight_max">40dp</item>
+        <item name="layout_constraintHeight_min">40dp</item>
+        <item name="layout_constraintStart_toStartOf">@id/guide_start</item>
+        <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
+        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x4</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+        <item name="android:background">?colorPrimaryContainer</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="MaterialLists.LeadingAvatarLabelText">
+        <item name="isMaterialListLeadingContent">true</item>
+        <item name="layout_constraintWidth_max">40dp</item>
+        <item name="layout_constraintWidth_min">40dp</item>
+        <item name="layout_constraintHeight_max">40dp</item>
+        <item name="layout_constraintHeight_min">40dp</item>
+        <item name="layout_constraintStart_toStartOf">@id/guide_start</item>
+        <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
+        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="android:textAppearance">?textAppearanceTitleMedium</item>
+        <item name="android:textColor">?colorOnPrimaryContainer</item>
+        <item name="android:gravity">center</item>
+        <item name="layout_constraintHorizontal_bias">0</item>
     </style>
 
     <style name="MaterialLists.TrailingIcon">
@@ -53,6 +126,23 @@
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
-        <item name="android:layout_marginEnd">@dimen/list_item_space_x2</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x5</item>
+    </style>
+
+    <style name="MaterialLists.TrailingSupportingText">
+        <item name="isMaterialListTrailingContent">true</item>
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
+        <item name="android:textAppearance">?textAppearanceLabelSmall</item>
+        <item name="firstBaselineToTopHeight">
+            @dimen/list_item_trailing_supporting_text_first_baseline_to_top
+        </item>
+        <item name="lastBaselineToBottomHeight">
+            @dimen/list_item_trailing_supporting_text_last_baseline_to_bottom
+        </item>
+        <item name="layout_constraintStart_toEndOf">@id/barrier_text_end</item>
+        <item name="layout_constraintEnd_toEndOf">@id/guide_end</item>
+        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x4</item>
     </style>
 </resources>

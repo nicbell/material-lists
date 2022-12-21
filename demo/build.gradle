@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'net.nicbell.materiallists.demo'
+    compileSdk compile_sdk_version
+
+    defaultConfig {
+        applicationId "net.nicbell.materiallists.demo"
+        minSdk min_sdk_version
+        targetSdk target_sdk_version
+        versionCode material_lists_version_code
+        versionName material_lists_version
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:$androidx_corektx_version"
+    implementation "androidx.appcompat:appcompat:$android_appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+
+    implementation project(":listitem")
+}

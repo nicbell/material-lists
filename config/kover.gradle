@@ -1,4 +1,4 @@
-def koverExcludes = ["*BuildConfig"]
+def koverExcludes = ["*BuildConfig", "net.nicbell.materiallists.demo*"]
 
 koverMerged {
     enable()

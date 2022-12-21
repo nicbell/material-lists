@@ -5,6 +5,8 @@
 
 An Android XML implementation of Material 3 list items.
 
+<img src="https://user-images.githubusercontent.com/151842/208748928-6e299e55-c38f-44f3-874a-05fe192d67c2.gif" width="340" />
+
 ## 🙋🏽 Why
 
 Material lists are available in Jetpack Compose but were never implemented in XML. This is a tiny
@@ -18,8 +20,18 @@ I have had to re-implement this layout so many times that I have decided to open
 Include the dependency in your project.
 
 ```groovy
+// via GitHub
 implementation "net.nicbell.material-lists:listitem:x.x.x"
+// via JitPack
+implementation 'net.nicbell:material-lists:x.x.x'
 ```
+The name is different as JitPack automatically shortens the name when there is a single artifact.
+
+> To get individual artifacts of multi-module builds use com.github.User.Repo as group Id and
+> ModuleName as the artifact Id `com.github.User.Repo:Module:Tag`.
+>
+> Note: If your project only has a single module then the dependency for that module is
+> just `com.github.User:Repo:Tag`.
 
 In order to download the dependency please make sure access to the Maven repository is configured.
 You can use JitPack or GitHub.
@@ -66,3 +78,71 @@ githubToken="xxx"
 </details>
 
 ## 🏄🏽 Usage
+
+Add the `ListItem` component to your layout.
+
+### Attributes
+
+The following attributes can be changed for a `ListItem`.
+
+| Description                 | Relevant attributes |
+|-----------------------------|---------------------|
+| Headline text               | `app:head`          |
+| Supporting text             | `app:supportText`   |
+| Size type - 1, 2 or 3 lines | `app:sizeType`      |
+
+For more info about size types see
+the [design documentation](https://m3.material.io/components/lists/specs).
+
+### Content
+
+Leading and trailing content can be added as child views. A content style is require in order to
+position the content correctly within the `ListItem`.
+
+| Description              | Style                                  | Required view type                   |
+|--------------------------|----------------------------------------|--------------------------------------|
+| Leading icon             | `MaterialLists.LeadingIcon`            | `AppCompatImageView`                 |
+| Leading image            | `MaterialLists.LeadingImage`           | `AppCompatImageView`                 |
+| Leading video thumbnail  | `MaterialLists.LeadingVideoThumbnail`  | `AppCompatImageView`                 |
+| Leading avatar image     | `MaterialLists.LeadingAvatar`          | `ShapeableImageView`                 |
+| Leading avatar label     | `MaterialLists.LeadingAvatarLabelText` | `MaterialTextView`                   |
+| Leading checkbox         | `MaterialLists.LeadingCheckbox`        | `MaterialCheckBox`                   |
+| Trailing icon            | `MaterialLists.TrailingIcon`           | `AppCompatImageView`                 |
+| Trailing checkbox        | `MaterialLists.TrailingCheckbox`       | `MaterialCheckBox`                   |
+| Trailing radio button    | `MaterialLists.TrailingRadioButton`    | `MaterialRadioButton`                |
+| Trailing switch          | `MaterialLists.TrailingSwitch`         | `SwitchMaterial` or `MaterialSwitch` |
+| Trailing supporting text | `MaterialLists.TrailingSupportingText` | `MaterialTextView`                   |
+
+### Example
+
+```xml
+
+<net.nicbell.materiallists.ListItem 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    app:headline="Headline" 
+    app:sizeType="TWO_LINES"
+    app:supportText="Support text">
+
+    <androidx.appcompat.widget.AppCompatImageView 
+        style="@style/MaterialLists.LeadingIcon"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_outline_person_24" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        style="@style/MaterialLists.TrailingCheckbox" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</net.nicbell.materiallists.ListItem>
+```
+
+Which will output the following.
+
+<img src="docs/img.png" width="340" />
+
+### Demo
+
+There is a demo app included with many examples.
+
+<img src="docs/demo.webp" width="340" />

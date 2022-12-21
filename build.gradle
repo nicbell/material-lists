@@ -16,6 +16,8 @@ ext {
     // Dependencies
     material_version = '1.7.0'
     androidx_constraintlayout_version = '2.1.4'
+    androidx_corektx_version = "1.9.0"
+    android_appcompat_version = "1.5.1"
 
     // Testing dependencies
     detekt_version = '1.19.0'
