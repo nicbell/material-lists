@@ -99,13 +99,19 @@ the [design documentation](https://m3.material.io/components/lists/specs).
 Leading and trailing content can be added as child views. A content style is require in order to
 position the content correctly within the `ListItem`.
 
-| Description           | Style                               | Required view type    |
-|-----------------------|-------------------------------------|-----------------------|
-| Leading icon          | `MaterialLists.LeadingIcon`         | `AppCompatImageView`  |
-| Trailing icon         | `MaterialLists.TrailingIcon`        | `AppCompatImageView`  |
-| Trailing checkbox     | `MaterialLists.TrailingCheckbox`    | `MaterialCheckBox`    |
-| Trailing radio button | `MaterialLists.TrailingRadioButton` | `MaterialRadioButton` |
-| Trailing switch       | `MaterialLists.TrailingSwitch`      | `SwitchMaterial`      |
+| Description              | Style                                  | Required view type                   |
+|--------------------------|----------------------------------------|--------------------------------------|
+| Leading icon             | `MaterialLists.LeadingIcon`            | `AppCompatImageView`                 |
+| Leading image            | `MaterialLists.LeadingImage`           | `AppCompatImageView`                 |
+| Leading video thumbnail  | `MaterialLists.LeadingVideoThumbnail`  | `AppCompatImageView`                 |
+| Leading avatar image     | `MaterialLists.LeadingAvatar`          | `ShapeableImageView`                 |
+| Leading avatar label     | `MaterialLists.LeadingAvatarLabelText` | `MaterialTextView`                   |
+| Leading checkbox         | `MaterialLists.LeadingCheckbox`        | `MaterialCheckBox`                   |
+| Trailing icon            | `MaterialLists.TrailingIcon`           | `AppCompatImageView`                 |
+| Trailing checkbox        | `MaterialLists.TrailingCheckbox`       | `MaterialCheckBox`                   |
+| Trailing radio button    | `MaterialLists.TrailingRadioButton`    | `MaterialRadioButton`                |
+| Trailing switch          | `MaterialLists.TrailingSwitch`         | `SwitchMaterial` or `MaterialSwitch` |
+| Trailing supporting text | `MaterialLists.TrailingSupportingText` | `MaterialTextView`                   |
 
 ### Example
 
@@ -135,6 +141,6 @@ Which will output the following.
 
 <img src="docs/img.png" width="340" />
 
-### Coming soon
+### Demo
 
-The rest of the leading and trailing content from the design documentation.
+There is a demo app included with many examples.

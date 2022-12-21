@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Material Lists Demo</string>
-    <string name="headline">Headline Text</string>
-    <string name="supporting">Supporting Text</string>
+    <string name="headline">Headline</string>
+    <string name="supporting">Supporting text</string>
+    <string name="supporting_multi">Supporting text that is long enough to fill up multiple lines</string>
+    <string name="trailing_support">100+</string>
 </resources>
