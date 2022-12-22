@@ -141,6 +141,14 @@ Which will output the following.
 
 <img src="docs/img.png" width="340" />
 
+### Material 2 compatibility
+
+This library was designed to work with `Theme.Material3` themes or themes inheriting from those
+themes. The reason for this, is that the library leverages some tokens that are only available in
+Material 3. If your activities use `Theme.MaterialComponents` themes you can still use the library
+but you will need to apply a `Theme.Material3` theme to the `ListItem` or one of it's parents in your
+layout.
+
 ### Demo
 
 There is a demo app included with many examples.
