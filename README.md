@@ -1,5 +1,6 @@
 # Material Lists
 
+![Maven Central](https://img.shields.io/maven-central/v/net.nicbell.material-lists/listitem)
 [![JitPack](https://jitpack.io/v/net.nicbell/material-lists.svg)](https://jitpack.io/#net.nicbell/material-lists)
 [![codecov](https://codecov.io/gh/nicbell/material-lists/branch/develop/graph/badge.svg?token=YYJ348RZAF)](https://codecov.io/gh/nicbell/material-lists)
 
