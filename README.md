@@ -1,7 +1,6 @@
 # Material Lists
 
-![Maven Central](https://img.shields.io/maven-central/v/net.nicbell.material-lists/listitem)
-[![JitPack](https://jitpack.io/v/net.nicbell/material-lists.svg)](https://jitpack.io/#net.nicbell/material-lists)
+[![Maven Central](https://img.shields.io/maven-central/v/net.nicbell.material-lists/listitem?color=blue)](https://s01.oss.sonatype.org/content/repositories/releases/net/nicbell/material-lists/listitem/)
 [![codecov](https://codecov.io/gh/nicbell/material-lists/branch/develop/graph/badge.svg?token=YYJ348RZAF)](https://codecov.io/gh/nicbell/material-lists)
 
 An Android XML implementation of Material 3 list items.
@@ -21,62 +20,18 @@ I have had to re-implement this layout so many times that I have decided to open
 Include the dependency in your project.
 
 ```groovy
-// via GitHub
 implementation "net.nicbell.material-lists:listitem:x.x.x"
-// via JitPack
-implementation 'net.nicbell:material-lists:x.x.x'
-```
-The name is different as JitPack automatically shortens the name when there is a single artifact.
-
-> To get individual artifacts of multi-module builds use com.github.User.Repo as group Id and
-> ModuleName as the artifact Id `com.github.User.Repo:Module:Tag`.
->
-> Note: If your project only has a single module then the dependency for that module is
-> just `com.github.User:Repo:Tag`.
-
-In order to download the dependency please make sure access to the Maven repository is configured.
-You can use JitPack or GitHub.
-
-<details>
-  <summary>From JitPack</summary>
-
-JitPack is full configured to work with
-the [custom domain](https://jitpack.io/#net.nicbell/material-lists/latest). Just included the Maven
-repository and add the dependency as described above.
-
-```gradle
-maven { url 'https://jitpack.io' }
 ```
 
-</details>
-
-<details>
-  <summary>From GitHub</summary>
-
-This repo is public but GitHub's Maven Repository needs authentication.
+In order to download the dependency please make sure access to the maven repo is configured. 
+You probably already have Maven Central configured; if you don't you will need to add it.
 
 ```gradle
-maven {
-    name = "GitHubPackages"
-    url = uri("https://maven.pkg.github.com/nicbell/material-lists")
-    credentials {
-        username = github_user
-        password = github_token
-    }
+repositories {
+    //..
+    mavenCentral()
 }
 ```
-
-To download Material Lists you will need to create
-a [personal access token](https://github.com/settings/tokens) with `read:packages` scope.
-
-Please do not push your tokens to GitHub, you can store them in `local.properties` instead.
-
-```properties
-githubName="username"
-githubToken="xxx"
-```
-
-</details>
 
 ## 🏄🏽 Usage
 
