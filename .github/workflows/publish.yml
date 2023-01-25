@@ -27,6 +27,9 @@ jobs:
       - name: Publish with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
         run: ./gradlew assembleRelease publishReleasePublicationToGitHubPackagesRepository -c settings.gradle
 
 # To publish to Sonatype
