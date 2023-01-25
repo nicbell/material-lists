@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'app.cash.paparazzi' version "$paparazzi_version"
     id 'maven-publish'
+    id 'signing'
 }
 
 android {
@@ -44,10 +45,38 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
+                pom {
+                    name = "Material Lists"
+                    description = "An Android XML implementation of Material 3 list items."
+                    url = "https://github.com/nicbell/material-lists"
+                    licenses {
+                        license {
+                            name = "The Apache Software License, Version 2.0"
+                            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'nicbell'
+                            name = 'Nic Bell'
+                        }
+                    }
+                    scm {
+                        url = "https://github.com/nicbell/material-lists"
+                        connection = "scm:git://github.com/nicbell/material-lists.git"
+                    }
+                }
             }
         }
         repositories {
-            configure(mavenMaterialLists)
+            configure(mavenGitHubMaterialLists)
+            configure(mavenSonaTypeSnapshots)
+            configure(mavenSonaTypeStaging)
         }
+    }
+
+    signing {
+        useInMemoryPgpKeys(signingKeyId, signingKey, signingKeyPassword)
+        sign publishing.publications.release
     }
 }
