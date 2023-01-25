@@ -8,7 +8,10 @@
 
 def getLocalOrEnvVar(String localKey, String envVar) {
     Properties properties = new Properties()
-    properties.load(rootProject.file("local.properties").newDataInputStream())
+
+    if (rootProject.file('local.properties').isFile()) {
+        properties.load(rootProject.file("local.properties").newDataInputStream())
+    }
 
     if (!properties.getProperty(localKey) && !System.getenv(envVar)) {
         println "Please configure '$localKey' in local.properties or '$envVar' environment varible."
