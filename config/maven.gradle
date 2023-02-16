@@ -4,40 +4,53 @@
  * githubName=username
  * githubToken=XXX
  *
- * This will enable you to use our private GitHub Maven repository:
- * repositories {
- *   configure(materialLists)
- * }
  */
 
-def github_user = ""
-def github_token = ""
-
-// Running on CI
-if (System.getenv("GITHUB_ACTOR") && System.getenv("GITHUB_TOKEN")) {
-    github_user = System.getenv("GITHUB_ACTOR")
-    github_token = System.getenv("GITHUB_TOKEN")
-}
-// Running locally
-else if (this.file('local.properties').isFile()) {
+def getLocalOrEnvVar(String localKey, String envVar) {
     Properties properties = new Properties()
-    properties.load(this.file('local.properties').newDataInputStream())
 
-    if (!properties.getProperty('githubName') && !properties.getProperty('githubToken')) {
-        println 'Please configure "githubName" & "githubToken" in local.properties.'
+    if (rootProject.file('local.properties').isFile()) {
+        properties.load(rootProject.file("local.properties").newDataInputStream())
     }
 
-    github_user = properties.getProperty('githubName')
-    github_token = properties.getProperty('githubToken')
+    if (!properties.getProperty(localKey) && !System.getenv(envVar)) {
+        println "Please configure '$localKey' in local.properties or '$envVar' environment varible."
+    }
+
+    return properties.getProperty(localKey) ?: System.getenv(envVar) ?: ""
 }
 
-ext.mavenMaterialLists = {
+ext.signingKeyId = getLocalOrEnvVar("signing.keyId", "SIGNING_KEY_ID")
+ext.signingKey = getLocalOrEnvVar("signing.key", "SIGNING_KEY")
+ext.signingKeyPassword = getLocalOrEnvVar("signing.password", "SIGNING_PASSWORD")
+
+ext.mavenGitHubMaterialLists = {
     maven {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/nicbell/material-lists")
         credentials {
-            username = github_user
-            password = github_token
+            username = getLocalOrEnvVar('githubName', 'GITHUB_ACTOR')
+            password = getLocalOrEnvVar('githubToken', 'GITHUB_TOKEN')
+        }
+    }
+}
+ext.mavenSonaTypeSnapshots = {
+    maven {
+        name "snapshot"
+        url = "https://s01.oss.sonatype.org/content/repositories/snapshots"
+        credentials {
+            username = getLocalOrEnvVar('sonatypeUsername', 'SONATYPE_USERNAME')
+            password = getLocalOrEnvVar('sonatypePassword', 'SONATYPE_PASSWORD')
+        }
+    }
+}
+ext.mavenSonaTypeStaging = {
+    maven {
+        name "staging"
+        url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+        credentials {
+            username = getLocalOrEnvVar('sonatypeUsername', 'SONATYPE_USERNAME')
+            password = getLocalOrEnvVar('sonatypePassword', 'SONATYPE_PASSWORD')
         }
     }
 }
