@@ -14,7 +14,7 @@ ext {
     compile_sdk_version = 33
 
     // Dependencies
-    material_version = '1.7.0'
+    material_version = '1.8.0'
     androidx_constraintlayout_version = '2.1.4'
     androidx_corektx_version = "1.9.0"
     android_appcompat_version = "1.5.1"
