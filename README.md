@@ -63,6 +63,7 @@ position the content correctly within the `ListItem`.
 | Leading avatar image     | `MaterialLists.LeadingAvatar`          | `ShapeableImageView`                 |
 | Leading avatar label     | `MaterialLists.LeadingAvatarLabelText` | `MaterialTextView`                   |
 | Leading checkbox         | `MaterialLists.LeadingCheckbox`        | `MaterialCheckBox`                   |
+| Leading radio button     | `MaterialLists.LeadingRadioButton`     | `MaterialRadioButton`                |
 | Trailing icon            | `MaterialLists.TrailingIcon`           | `AppCompatImageView`                 |
 | Trailing checkbox        | `MaterialLists.TrailingCheckbox`       | `MaterialCheckBox`                   |
 | Trailing radio button    | `MaterialLists.TrailingRadioButton`    | `MaterialRadioButton`                |

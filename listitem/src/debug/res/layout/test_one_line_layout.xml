@@ -146,6 +146,23 @@
         android:layout_height="wrap_content"
         app:headline="Headline">
 
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            style="@style/MaterialLists.LeadingRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/MaterialLists.TrailingSupportingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100+" />
+    </net.nicbell.materiallists.ListItem>
+
+    <net.nicbell.materiallists.ListItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline">
+
         <com.google.android.material.imageview.ShapeableImageView
             style="@style/MaterialLists.LeadingAvatar"
             android:layout_width="wrap_content"
