@@ -19,4 +19,5 @@
     <dimen name="list_item_space_x4">16dp</dimen>
     <dimen name="list_item_space_x5">20dp</dimen>
     <dimen name="list_item_space_x6">24dp</dimen>
+    <dimen name="list_item_space_x1neg">-4dp</dimen>
 </resources>
