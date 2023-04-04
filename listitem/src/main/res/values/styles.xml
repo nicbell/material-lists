@@ -21,10 +21,20 @@
         <item name="isMaterialListLeadingContent">true</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
-        <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
-        <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
         <item name="android:layout_marginEnd">@dimen/list_item_space_x1</item>
+    </style>
+
+    <style name="MaterialLists.LeadingRadioButton">
+        <item name="isMaterialListLeadingContent">true</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toStartOf">@id/barrier_text_start</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x3</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x1neg</item>
     </style>
 
     <style name="MaterialLists.LeadingImage">
