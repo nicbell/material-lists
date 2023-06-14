@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.Barrier
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Guideline
 import androidx.core.view.isVisible
+import androidx.databinding.BindingAdapter
 import com.google.android.material.textview.MaterialTextView
 
 /**
@@ -154,4 +155,14 @@ class ListItem @JvmOverloads constructor(
         private const val CENTERED_VERTICAL_BIAS = 0.5f
         private const val TOP_VERTICAL_BIAS = 0f
     }
+}
+
+@BindingAdapter("app:headline")
+fun setHeadline(view: ListItem, headline: String?) {
+    view.headline.text = headline
+}
+
+@BindingAdapter("app:supportText")
+fun setSupportText(view: ListItem, supportText: String?) {
+    view.supportText.text = supportText
 }

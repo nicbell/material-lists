@@ -4,6 +4,7 @@ plugins {
     id 'app.cash.paparazzi' version "$paparazzi_version"
     id 'maven-publish'
     id 'signing'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,6 +37,7 @@ android {
 dependencies {
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"
+    implementation 'androidx.databinding:databinding-common:8.0.1'
 
     testImplementation "junit:junit:$junit_version"
 }
