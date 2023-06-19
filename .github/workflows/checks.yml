@@ -44,6 +44,7 @@ jobs:
           verbose: true
       - name: Upload reports
         uses: actions/upload-artifact@v3
+        if: success() || failure()
         with:
           path: "**/build/reports/**"
           retention-days: 7
