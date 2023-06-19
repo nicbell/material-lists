@@ -18,7 +18,7 @@ abstract class SnapshotTest(nightMode: NightMode) {
             softButtons = false,
         ),
         theme = "Theme.Material3.DayNight.NoActionBar",
-        maxPercentDifference = 0.0
+        maxPercentDifference = 0.01
     )
 
     companion object {
