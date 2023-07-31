@@ -4,7 +4,7 @@ buildscript {
     ext.android_gradle_plugin_version = '8.0.2'
     ext.kotlin_plugin_version = '1.8.22'
     ext.kover_plugin_version = '0.6.1'
-    ext.detekt_plugin_version = '1.23.0'
+    ext.detekt_plugin_version = '1.23.1'
 }
 
 plugins {
