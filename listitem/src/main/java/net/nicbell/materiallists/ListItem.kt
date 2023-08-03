@@ -16,7 +16,7 @@ import com.google.android.material.textview.MaterialTextView
  * https://m3.material.io/components/lists/specs
  */
 @Suppress("MemberVisibilityCanBePrivate")
-class ListItem @JvmOverloads constructor(
+open class ListItem @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -33,8 +33,10 @@ class ListItem @JvmOverloads constructor(
     private val barrierTextEnd by lazy { findViewById<Barrier>(R.id.barrier_text_end) }
     private val barrierTextStart by lazy { findViewById<Barrier>(R.id.barrier_text_start) }
 
+    private fun root() = this
+
     init {
-        inflate(context, R.layout.list_item, this)
+        inflate(context, R.layout.list_item, root())
 
         attrs?.let {
             val attributes = context.obtainStyledAttributes(it, R.styleable.ListItem)
