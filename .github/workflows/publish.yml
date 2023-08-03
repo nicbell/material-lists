@@ -1,10 +1,10 @@
-# Publish a snapshot every time something is merged into 'develop'
+# Publish a snapshot every time something is merged into 'main'
 # Publish an official release on every tag
 name: Android CI publish
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
     tags:
       - '*'
 
