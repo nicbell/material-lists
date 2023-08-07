@@ -33,10 +33,9 @@ open class ListItem @JvmOverloads constructor(
     private val barrierTextEnd by lazy { findViewById<Barrier>(R.id.barrier_text_end) }
     private val barrierTextStart by lazy { findViewById<Barrier>(R.id.barrier_text_start) }
 
-    private fun root() = this
-
     init {
-        inflate(context, R.layout.list_item, root())
+        @Suppress("LeakingThis") // This is normal in custom view groups that are non-final.
+        inflate(context, R.layout.list_item, this)
 
         attrs?.let {
             val attributes = context.obtainStyledAttributes(it, R.styleable.ListItem)
