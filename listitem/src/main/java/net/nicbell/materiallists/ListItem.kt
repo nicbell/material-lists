@@ -16,7 +16,7 @@ import com.google.android.material.textview.MaterialTextView
  * https://m3.material.io/components/lists/specs
  */
 @Suppress("MemberVisibilityCanBePrivate")
-class ListItem @JvmOverloads constructor(
+open class ListItem @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -34,6 +34,7 @@ class ListItem @JvmOverloads constructor(
     private val barrierTextStart by lazy { findViewById<Barrier>(R.id.barrier_text_start) }
 
     init {
+        @Suppress("LeakingThis") // This is normal in custom view groups that are non-final.
         inflate(context, R.layout.list_item, this)
 
         attrs?.let {
