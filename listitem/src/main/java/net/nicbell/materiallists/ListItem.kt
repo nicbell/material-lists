@@ -35,7 +35,7 @@ open class ListItem @JvmOverloads constructor(
 
     init {
         @Suppress("LeakingThis") // This is normal in custom view groups that are non-final.
-        inflate(context, R.layout.list_item, this)
+        inflate(context, R.layout.material_lists_list_item, this)
 
         attrs?.let {
             val attributes = context.obtainStyledAttributes(it, R.styleable.ListItem)
