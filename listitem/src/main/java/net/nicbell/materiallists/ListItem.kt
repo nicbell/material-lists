@@ -9,13 +9,14 @@ import androidx.constraintlayout.widget.Barrier
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Guideline
 import androidx.core.view.isVisible
+import com.google.android.material.divider.MaterialDivider
 import com.google.android.material.textview.MaterialTextView
 
 /**
  * Material 3 list item implementation:
  * https://m3.material.io/components/lists/specs
  */
-@Suppress("MemberVisibilityCanBePrivate")
+@Suppress("MemberVisibilityCanBePrivate", "Unused")
 open class ListItem @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -26,6 +27,7 @@ open class ListItem @JvmOverloads constructor(
 
     val headline by lazy<MaterialTextView> { findViewById(R.id.txt_headline) }
     val supportText by lazy<MaterialTextView> { findViewById(R.id.txt_support) }
+    val divider by lazy<MaterialDivider> { findViewById(R.id.divider) }
 
     private val guideTop by lazy<Guideline> { findViewById(R.id.guide_top) }
     private val guideBottom by lazy<Guideline> { findViewById(R.id.guide_bottom) }
@@ -71,6 +73,7 @@ open class ListItem @JvmOverloads constructor(
                 guideTop.setGuidelineBegin(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
             }
+
             ListItemSizeType.TwoLine -> {
                 supportText.isVisible = true
                 minHeight = resources.getDimensionPixelSize(R.dimen.list_item_min_height_two_line)
@@ -80,6 +83,7 @@ open class ListItem @JvmOverloads constructor(
                 guideTop.setGuidelineBegin(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
             }
+
             ListItemSizeType.ThreeLine -> {
                 supportText.isVisible = true
                 minHeight = resources.getDimensionPixelSize(R.dimen.list_item_min_height_three_line)
@@ -103,6 +107,7 @@ open class ListItem @JvmOverloads constructor(
                 params.isMaterialListLeadingContent -> {
                     barrierTextStart.referencedIds = barrierTextStart.referencedIds + child.id
                 }
+
                 params.isMaterialListTrailingContent -> {
                     barrierTextEnd.referencedIds = barrierTextEnd.referencedIds + child.id
                 }
@@ -115,6 +120,7 @@ open class ListItem @JvmOverloads constructor(
         params.verticalBias = when (sizeType) {
             ListItemSizeType.OneLine,
             ListItemSizeType.TwoLine -> CENTERED_VERTICAL_BIAS
+
             ListItemSizeType.ThreeLine -> TOP_VERTICAL_BIAS
         }
     }
