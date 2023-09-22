@@ -47,7 +47,7 @@ The following attributes can be changed for a `ListItem`.
 | Supporting text              | `app:supportText`   |
 | Size type - 1, 2 or 3+ lines | `app:sizeType`      |
 | Show divider (default true)  | `app:showDivider`   |
-| Divider color                | `app:dividerColor`  |
+| Divider color                | `app:dividerTint`   |
 
 For more info about size types see
 the [design documentation](https://m3.material.io/components/lists/specs).
