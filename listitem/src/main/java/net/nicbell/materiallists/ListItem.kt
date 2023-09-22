@@ -76,6 +76,7 @@ open class ListItem @JvmOverloads constructor(
 
             ListItemSizeType.TwoLine -> {
                 supportText.isVisible = true
+                supportText.maxLines = 1
                 minHeight = resources.getDimensionPixelSize(R.dimen.list_item_min_height_two_line)
 
                 headline.constraintVerticalBias = CENTERED_VERTICAL_BIAS
@@ -86,6 +87,7 @@ open class ListItem @JvmOverloads constructor(
 
             ListItemSizeType.ThreeLine -> {
                 supportText.isVisible = true
+                supportText.maxLines = Int.MAX_VALUE
                 minHeight = resources.getDimensionPixelSize(R.dimen.list_item_min_height_three_line)
 
                 headline.constraintVerticalBias = TOP_VERTICAL_BIAS

@@ -12,15 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text" />
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text." />
 
     <net.nicbell.materiallists.ListItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingIcon"
@@ -33,8 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingIcon"
@@ -52,8 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingIcon"
@@ -72,8 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingIcon"
@@ -93,8 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
 
         <com.google.android.material.imageview.ShapeableImageView
             style="@style/MaterialLists.LeadingAvatar"
@@ -118,8 +118,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingImage"
@@ -138,8 +138,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:sizeType="THREE_LINES"
-        app:supportText="Hello world I am a multi-line example of list item support text. Hello world I am a multi-line example of list item support text">
+        app:sizeType="THREE_PLUS_LINES"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingVideoThumbnail"
