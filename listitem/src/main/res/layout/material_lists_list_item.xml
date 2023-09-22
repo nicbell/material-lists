@@ -87,7 +87,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:maxLines="2"
         android:textAppearance="?textAppearanceBodyMedium"
         android:textColor="?colorOnSurfaceVariant"
         app:firstBaselineToTopHeight="@dimen/list_item_supporting_text_first_baseline_to_top"

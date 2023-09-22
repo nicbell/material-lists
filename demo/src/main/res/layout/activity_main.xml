@@ -481,14 +481,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/list_item_space_x6"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi" />
 
         <net.nicbell.materiallists.ListItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -502,7 +502,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -522,7 +522,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -542,7 +542,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -562,7 +562,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -582,7 +582,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -602,7 +602,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -623,7 +623,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -642,7 +642,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -661,7 +661,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -686,7 +686,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -706,7 +706,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:headline="@string/headline"
-            app:sizeType="THREE_LINES"
+            app:sizeType="THREE_PLUS_LINES"
             app:supportText="@string/supporting_multi">
 
             <androidx.appcompat.widget.AppCompatImageView
