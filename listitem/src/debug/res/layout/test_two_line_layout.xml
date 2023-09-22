@@ -145,6 +145,7 @@
         android:layout_height="wrap_content"
         app:headline="Headline"
         app:sizeType="TWO_LINES"
+        app:dividerTint="?colorSurfaceVariant"
         app:supportText="Support text">
 
         <androidx.appcompat.widget.AppCompatImageView
