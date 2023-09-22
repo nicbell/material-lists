@@ -51,6 +51,14 @@ open class ListItem @JvmOverloads constructor(
                     setSizeType(ListItemSizeType.values()[this])
                 }
 
+                getBoolean(R.styleable.ListItem_showDivider, true).run {
+                    divider.isVisible = this
+                }
+
+                getColorStateList(R.styleable.ListItem_dividerTint)?.run {
+                    divider.dividerColor = this.defaultColor
+                }
+
                 recycle()
             }
         }

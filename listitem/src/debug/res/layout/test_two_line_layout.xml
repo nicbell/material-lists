@@ -164,6 +164,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
+        app:showDivider="false"
         app:sizeType="TWO_LINES"
         app:supportText="Support text">
 

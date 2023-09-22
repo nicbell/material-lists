@@ -202,7 +202,8 @@
     <net.nicbell.materiallists.ListItem
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:headline="Headline">
+        app:headline="Headline"
+        app:showDivider="false">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingVideoThumbnail"
