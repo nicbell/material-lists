@@ -8,6 +8,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.constraintlayout.widget.Barrier
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Guideline
+import androidx.core.view.children
 import androidx.core.view.isVisible
 import com.google.android.material.divider.MaterialDivider
 import com.google.android.material.textview.MaterialTextView
@@ -81,7 +82,6 @@ open class ListItem @JvmOverloads constructor(
                 guideTop.setGuidelineBegin(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
             }
-
             ListItemSizeType.TwoLine -> {
                 supportText.isVisible = true
                 supportText.maxLines = 1
@@ -92,7 +92,6 @@ open class ListItem @JvmOverloads constructor(
                 guideTop.setGuidelineBegin(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.list_item_space_x2))
             }
-
             ListItemSizeType.ThreeLine -> {
                 supportText.isVisible = true
                 supportText.maxLines = Int.MAX_VALUE
@@ -104,11 +103,19 @@ open class ListItem @JvmOverloads constructor(
                 guideBottom.setGuidelineEnd(resources.getDimensionPixelSize(R.dimen.list_item_space_x3))
             }
         }
+
+        // Re-align leading & trailing, this is useful if size type is updated
+        children.forEach {
+            val params = it.layoutParams
+            if (params is LayoutParams && params.isLeadingOrTrailingContent()) {
+                verticallyAlign(params)
+            }
+        }
     }
 
     override fun addView(child: View?, params: ViewGroup.LayoutParams?) {
         if (child != null && params is LayoutParams) {
-            if (params.isMaterialListLeadingContent || params.isMaterialListTrailingContent) {
+            if (params.isLeadingOrTrailingContent()) {
                 if (child.id == View.NO_ID) child.id = View.generateViewId()
                 verticallyAlign(params)
             }
@@ -117,7 +124,6 @@ open class ListItem @JvmOverloads constructor(
                 params.isMaterialListLeadingContent -> {
                     barrierTextStart.referencedIds = barrierTextStart.referencedIds + child.id
                 }
-
                 params.isMaterialListTrailingContent -> {
                     barrierTextEnd.referencedIds = barrierTextEnd.referencedIds + child.id
                 }
@@ -128,9 +134,8 @@ open class ListItem @JvmOverloads constructor(
 
     private fun verticallyAlign(params: ConstraintLayout.LayoutParams) {
         params.verticalBias = when (sizeType) {
-            ListItemSizeType.OneLine,
+            ListItemSizeType.OneLine -> CENTERED_VERTICAL_BIAS
             ListItemSizeType.TwoLine -> CENTERED_VERTICAL_BIAS
-
             ListItemSizeType.ThreeLine -> TOP_VERTICAL_BIAS
         }
     }
@@ -161,6 +166,8 @@ open class ListItem @JvmOverloads constructor(
             }
             styledAttrs.recycle()
         }
+
+        fun isLeadingOrTrailingContent() = isMaterialListLeadingContent || isMaterialListTrailingContent
     }
 
     enum class ListItemSizeType {

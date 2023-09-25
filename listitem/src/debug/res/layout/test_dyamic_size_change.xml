@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.Material3.DayNight"
+    tools:ignore="HardcodedText">
+
+    <net.nicbell.materiallists.ListItem
+        android:id="@+id/list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:headline="Headline"
+        app:showDivider="false"
+        app:sizeType="ONE_LINE"
+        app:supportText="Hello world I am a multi-line example of list item support text.">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/MaterialLists.LeadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_person_24" />
+    </net.nicbell.materiallists.ListItem>
+</LinearLayout>
