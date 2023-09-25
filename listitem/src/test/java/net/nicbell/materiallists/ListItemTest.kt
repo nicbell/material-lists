@@ -64,4 +64,17 @@ class ListItemTest(nightMode: NightMode) : SnapshotTest(nightMode) {
         layout.addView(listItem)
         paparazzi.snapshot(layout)
     }
+
+    @Test
+    fun `ListItem change size`() {
+        val view = paparazzi.inflate<View>(R.layout.test_dyamic_size_change)
+        val item = view.findViewById<ListItem>(R.id.list_item)
+        paparazzi.snapshot(view, "1")
+
+        item.setSizeType(sizeType = ListItem.ListItemSizeType.TwoLine)
+        paparazzi.snapshot(view, "2")
+
+        item.setSizeType(sizeType = ListItem.ListItemSizeType.ThreeLine)
+        paparazzi.snapshot(view, "3")
+    }
 }
