@@ -42,7 +42,9 @@ class ListItemTest(nightMode: NightMode) : SnapshotTest(nightMode) {
 
             addView(
                 AppCompatImageView(
-                    ContextThemeWrapper(context, R.style.MaterialLists_LeadingIcon), null, 0
+                    ContextThemeWrapper(context, R.style.MaterialLists_LeadingIcon),
+                    null,
+                    0
                 ).apply {
                     id = View.generateViewId()
                     setImageResource(R.drawable.ic_outline_person_24)
