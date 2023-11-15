@@ -36,7 +36,9 @@ jobs:
       - name: Paparazzi
         run: ./gradlew listitem:verifyPaparazziDebug
       - name: Kover report
-        run: ./gradlew koverMergedReport
+        run: ./gradlew koverHtmlReport koverXmlReport
+      - name: Kover dump
+        run: ./gradlew koverDump -q
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
