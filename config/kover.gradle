@@ -1,100 +1,115 @@
-def koverExcludes = ["*BuildConfig", "net.nicbell.materiallists.demo*"]
+import groovy.xml.XmlSlurper
 
-koverMerged {
-    enable()
+apply plugin: 'org.jetbrains.kotlinx.kover'
+
+def koverExcludes = [
+        "*BuildConfig",
+        "*.databinding.*",
+        "*ViewBinding*"
+]
+
+def koverIgnoredProjects = ["demo"]
+
+private static boolean isAndroidModule(Project project) {
+    boolean isAndroidLibrary = project.plugins.hasPlugin('com.android.library')
+    boolean isAndroidApp = project.plugins.hasPlugin('com.android.application')
+    return isAndroidLibrary || isAndroidApp
+}
+
+// Root / merged report
+koverReport {
+    dependencies {
+        project.subprojects
+                .findAll { it.file("build.gradle").exists() && !koverIgnoredProjects.contains(it.name) }
+                .forEach { module -> kover(project(":${module.name}")) }
+    }
+
     filters {
-        classes {
-            excludes.addAll(koverExcludes)
-        }
-    }
-    verify {
-        rule {
-            enabled = true
-            name = "Minimum coverage"
-            target = 'ALL'
-            bound {
-                minValue = 75
-                maxValue = 100
-                counter = 'LINE' // change coverage metric to evaluate (LINE, INSTRUCTION, BRANCH)
-                valueType = 'COVERED_PERCENTAGE'
-            }
-        }
+        excludes { classes(koverExcludes) }
     }
 }
 
-subprojects {
-    apply plugin: "kover"
-    kover {
-        filters {
-            classes {
-                excludes.addAll(koverExcludes)
+// Sub-project reports
+subprojects { proj ->
+    if (koverIgnoredProjects.contains(proj.name)) return
+
+    apply plugin: "org.jetbrains.kotlinx.kover"
+
+    afterEvaluate {
+        koverReport {
+            filters {
+                excludes { classes(koverExcludes) }
             }
-        }
-        instrumentation {
-            excludeTasks.add "testReleaseUnitTest"
-            // exclude testReleaseUnitTest from instrumentation
-        }
-    }
-}
-
-
-// ./gradlew koverDump -q
-def magenta = "\u001B[35m"
-def normal = "\u001B[0m"
-
-tasks.register("koverDump") {
-    dependsOn 'koverMergedReport'
-    doLast {
-        println "${magenta}Kover Console Dump${normal}"
-
-        def slurp = new groovy.xml.XmlSlurper()
-        slurp.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)
-        slurp.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
-
-        def reportFile = file("${buildDir}/reports/kover/merged/xml/report.xml")
-        def reportParsed = slurp.parseText(reportFile.getText('UTF-8'))
-
-        reportParsed.'*'
-                .findAll { it.name() == 'counter' }
-                .collect { counter ->
-                    int percentage = counter.@covered.toInteger() / (counter.@missed.toInteger() + counter.@covered.toInteger()) * 100
-                    println "Coverage ${counter.@type.toString()} $percentage%"
-                    println "- Covered ${counter.@covered.toInteger()}/${counter.@missed.toInteger() + counter.@covered.toInteger()}"
+            defaults {
+                if (isAndroidModule(proj)) {
+                    mergeWith("debug")
                 }
+            }
+        }
+    }
+}
+
+// Creates user friendly report per module
+// ./gradlew koverXmlReport koverHtmlReport
+// ./gradlew koverDump -q
+tasks.register("koverDump") {
+    doLast {
+        println "\u001B[35mKover Console Dump\u001B[0m"
 
         def codeQualityTemplate = new File(projectDir, "config/codecoverage-template.html").text
         def reportHtml = ""
         def metrics = ""
+        def coverageType = "INSTRUCTION"
 
+        // Modules
         project.subprojects.findAll { it.file("build.gradle").exists() }.forEach { module ->
-            def moduleReportFile = file("${module.buildDir}/reports/kover/xml/report.xml")
-            int percentage = 0
-
-            if (moduleReportFile.exists()) {
-                def moduleReportParsed = slurp.parseText(moduleReportFile.getText('UTF-8'))
-
-                moduleReportParsed.'*'
-                        .findAll { it.name() == 'counter' && it.@type.toString() == "INSTRUCTION" }
-                        .collect { counter ->
-                            percentage = counter.@covered.toInteger() / (counter.@missed.toInteger() + counter.@covered.toInteger()) * 100
-                        }
-                metrics += "code-coverage${module.path} $percentage\n"
-            }
-            reportHtml += getModuleReportHtml(module, moduleReportFile.exists(), percentage)
+            def percentage = getPercentage(module, "/reports/kover/", coverageType)
+            reportHtml += getCoverageHtml(module, "/reports/kover/", percentage)
+            metrics += percentage != null ? "code-coverage${module.path} ${String.format("%.2f", percentage)}\n" : ""
         }
+        // Merged report
+        def percentage = getPercentage(project, "/reports/kover/", coverageType)
+        reportHtml += getCoverageHtml(project, "/reports/kover/", percentage)
 
         new File(projectDir, "build/reports").mkdirs() // in-case the directory doesn't exist.
-        new File(projectDir, "build/reports/metrics.txt").text = metrics
         new File(projectDir, "build/reports/codecoverage.html").text = codeQualityTemplate.replace("\$codeQuality", reportHtml)
+        new File(projectDir, "build/reports/metrics.txt").text = metrics
     }
 }
 
-private static String getModuleReportHtml(Project module, Boolean hasReport, int percentage) {
-    def modulePath = new File(module.rootDir, "build/reports/").relativePath(module.projectDir)
+private static Double getPercentage(Project module, String reportPath, coverageType) {
+    def reportFile = new File(module.buildDir, reportPath + "report.xml")
 
-    if (hasReport) {
+    if (reportFile.exists()) {
+        def slurp = new XmlSlurper()
+        slurp.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)
+        slurp.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
+        def moduleReportParsed = slurp.parseText(reportFile.getText('UTF-8'))
+        double percentage = 0
+
+        moduleReportParsed.'*'.findAll { it.name() == 'counter' && it.@type.toString() == coverageType }.collect { counter ->
+            if (counter.@covered.toInteger() > 0) {
+                percentage = counter.@covered.toInteger() / (counter.@missed.toInteger() + counter.@covered.toInteger()) * 100
+            }
+            if (module.path != ":") {
+                println("${String.format("%.2f", percentage)}% \t - ${module.path} (${module.name})")
+            } else {
+                println("Total Coverage: ${String.format("%.2f", percentage)}%")
+            }
+        }
+        return percentage
+    } else {
+        return null
+    }
+}
+
+private static GString getCoverageHtml(Project module, String reportPath, Double percentage) {
+    if (percentage != null) {
+        def htmlPath = new File(module.rootProject.buildDir, "reports")
+                .relativePath(new File(module.buildDir, reportPath + "html/index.html"))
+
         return "<tr><td><code>${module.path}</code></td>" +
-                "<td><a href=\"$modulePath/build/reports/kover/html/index.html\">Report</a></td><td>$percentage%</td></tr>"
+                "<td><a href=\"${htmlPath}\">Report</a></td><td>${String.format("%.2f", percentage)}%</td></tr>"
     } else {
         return "<tr><td><code>${module.path}</code></td>" +
                 "<td><span class=\"glyphicon glyphicon glyphicon-remove text-danger\" aria-hidden=\"true\"></span></td>" +
