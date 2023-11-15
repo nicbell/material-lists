@@ -36,9 +36,9 @@ android {
 }
 
 dependencies {
-    implementation "androidx.core:core-ktx:$androidx_corektx_version"
-    implementation "androidx.appcompat:appcompat:$android_appcompat_version"
-    implementation "com.google.android.material:material:$material_version"
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
 
     implementation project(":listitem")
 }

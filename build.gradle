@@ -1,18 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    // Plugins
-    ext.android_gradle_plugin_version = '8.0.2'
-    ext.kotlin_plugin_version = '1.9.20'
-    ext.kover_plugin_version = '0.6.1'
-    ext.detekt_plugin_version = '1.23.3'
-}
-
 plugins {
-    id 'com.android.application' version "$android_gradle_plugin_version" apply false
-    id 'com.android.library' version "$android_gradle_plugin_version" apply false
-    id 'org.jetbrains.kotlin.android' version "$kotlin_plugin_version" apply false
-    id 'org.jetbrains.kotlinx.kover' version "$kover_plugin_version"
-    id 'io.gitlab.arturbosch.detekt' version "$detekt_plugin_version"
+    alias libs.plugins.android.application apply false
+    alias libs.plugins.android.library apply false
+    alias libs.plugins.kotlin.android apply false
+    alias libs.plugins.kotlinx.kover // Needs apply for old version
+    alias libs.plugins.paparazzi apply false
+    alias libs.plugins.detekt apply false
 }
 
 ext {
@@ -20,19 +13,7 @@ ext {
     min_sdk_version = 21
     target_sdk_version = 33
     compile_sdk_version = 33
-
-    // Dependencies
-    material_version = '1.9.0'
-    androidx_constraintlayout_version = '2.1.4'
-    androidx_corektx_version = "1.9.0"
-    android_appcompat_version = "1.5.1"
-
-    // Testing dependencies
-    detekt_version = '1.19.0'
-    junit_version = '4.13.2'
-    paparazzi_version = '1.3.1'
 }
-
 
 apply from: "$rootDir/config/versioning.gradle"
 apply from: "$rootDir/config/maven.gradle"
