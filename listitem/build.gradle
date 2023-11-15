@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'app.cash.paparazzi' version "$paparazzi_version"
+    id 'app.cash.paparazzi'
     id 'maven-publish'
     id 'signing'
 }
@@ -34,10 +34,10 @@ android {
 }
 
 dependencies {
-    implementation "com.google.android.material:material:$material_version"
-    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"
+    implementation libs.material
+    implementation libs.androidx.constraintlayout
 
-    testImplementation "junit:junit:$junit_version"
+    testImplementation libs.junit
 }
 
 afterEvaluate {
