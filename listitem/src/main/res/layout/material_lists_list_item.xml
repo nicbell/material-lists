@@ -27,7 +27,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_end="@dimen/list_item_space_x6"
+        app:layout_constraintGuide_end="@dimen/list_item_space_x4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -102,8 +102,10 @@
         android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:dividerColor="?colorSurfaceVariant"
+        app:dividerColor="?colorOutlineVariant"
+        app:dividerInsetEnd="@dimen/list_item_space_x4"
+        app:dividerInsetStart="@dimen/list_item_space_x4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guide_end"
-        app:layout_constraintStart_toStartOf="@id/guide_start" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </merge>

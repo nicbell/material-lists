@@ -49,7 +49,7 @@ open class ListItem @JvmOverloads constructor(
                 supportText.text = getString(R.styleable.ListItem_supportText).orEmpty()
 
                 getInt(R.styleable.ListItem_sizeType, ListItemSizeType.OneLine.ordinal).run {
-                    setSizeType(ListItemSizeType.values()[this])
+                    setSizeType(ListItemSizeType.entries[this])
                 }
 
                 getBoolean(R.styleable.ListItem_showDivider, true).run {
