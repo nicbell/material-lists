@@ -116,7 +116,7 @@
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
-        <item name="android:layout_marginEnd">@dimen/list_item_space_x3</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x1</item>
     </style>
 
     <style name="MaterialLists.TrailingRadioButton">
@@ -125,8 +125,10 @@
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
-        <item name="android:layout_marginStart">@dimen/list_item_space_x3</item>
-        <item name="android:layout_marginEnd">@dimen/list_item_space_x1</item>
+        <!-- Hack because of: https://github.com/material-components/material-components-android/issues/3301 -->
+        <item name="android:rotation">180</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x3</item>
     </style>
 
     <style name="MaterialLists.TrailingSwitch">
@@ -135,8 +137,8 @@
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
-        <item name="android:layout_marginStart">@dimen/list_item_space_x1</item>
-        <item name="android:layout_marginEnd">@dimen/list_item_space_x5</item>
+        <item name="android:layout_marginStart">@dimen/list_item_space_x2</item>
+        <item name="android:layout_marginEnd">@dimen/list_item_space_x3</item>
     </style>
 
     <style name="MaterialLists.TrailingSupportingText">
