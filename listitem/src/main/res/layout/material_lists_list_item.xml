@@ -102,7 +102,7 @@
         android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:dividerColor="?colorSurfaceVariant"
+        app:dividerColor="?colorOutlineVariant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start" />
