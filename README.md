@@ -46,7 +46,7 @@ The following attributes can be changed for a `ListItem`.
 | Headline text                | `app:head`          |
 | Supporting text              | `app:supportText`   |
 | Size type - 1, 2 or 3+ lines | `app:sizeType`      |
-| Show divider (default true)  | `app:showDivider`   |
+| Show divider (default true)  | `app:dividerVisible`   |
 | Divider color                | `app:dividerTint`   |
 
 For more info about size types see

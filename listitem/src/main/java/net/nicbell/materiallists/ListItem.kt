@@ -52,7 +52,7 @@ open class ListItem @JvmOverloads constructor(
                     setSizeType(ListItemSizeType.entries[this])
                 }
 
-                getBoolean(R.styleable.ListItem_showDivider, true).run {
+                getBoolean(R.styleable.ListItem_dividerVisible, true).run {
                     divider.isVisible = this
                 }
 

@@ -10,7 +10,7 @@
             <enum name="THREE_PLUS_LINES" value="2" />
         </attr>
 
-        <attr name="showDivider" format="boolean" />
+        <attr name="dividerVisible" format="boolean" />
         <attr name="dividerTint" format="color" />
     </declare-styleable>
 
