@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:showDivider="false"
+        app:dividerVisible="false"
         app:sizeType="THREE_PLUS_LINES"
         app:supportText="Hello world I am a multi-line example of list item support text.">
 

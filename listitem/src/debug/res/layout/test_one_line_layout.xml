@@ -203,7 +203,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:headline="Headline"
-        app:showDivider="false">
+        app:dividerVisible="false">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/MaterialLists.LeadingVideoThumbnail"
