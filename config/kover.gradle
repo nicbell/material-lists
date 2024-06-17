@@ -5,7 +5,9 @@ apply plugin: 'org.jetbrains.kotlinx.kover'
 def koverExcludes = [
         "*BuildConfig",
         "*.databinding.*",
-        "*ViewBinding*"
+        "*ViewBinding*",
+        "*ComposableSingletons*",
+        "*PreviewParameterProvider*"
 ]
 
 def koverIgnoredProjects = ["demo"]
@@ -17,15 +19,22 @@ private static boolean isAndroidModule(Project project) {
 }
 
 // Root / merged report
-koverReport {
-    dependencies {
-        project.subprojects
-                .findAll { it.file("build.gradle").exists() && !koverIgnoredProjects.contains(it.name) }
-                .forEach { module -> kover(project(":${module.name}")) }
+kover {
+    reports {
+        dependencies {
+            project.subprojects
+                    .findAll { it.file("build.gradle").exists() && !koverIgnoredProjects.contains(it.name) }
+                    .forEach { module -> kover(project(":${module.name}")) }
+        }
+        filters {
+            excludes {
+                classes(koverExcludes)
+                annotatedBy("*.Preview*")
+            }
+        }
     }
-
-    filters {
-        excludes { classes(koverExcludes) }
+    currentProject {
+        createVariant("main") {}
     }
 }
 
@@ -36,13 +45,22 @@ subprojects { proj ->
     apply plugin: "org.jetbrains.kotlinx.kover"
 
     afterEvaluate {
-        koverReport {
-            filters {
-                excludes { classes(koverExcludes) }
+        kover {
+            reports {
+                filters {
+                    excludes {
+                        classes(koverExcludes)
+                        annotatedBy("*.Preview*")
+                    }
+                }
             }
-            defaults {
-                if (isAndroidModule(proj)) {
-                    mergeWith("debug")
+            currentProject {
+                createVariant("main") {
+                    add(["jvm"], true)
+
+                    if (isAndroidModule(proj)) {
+                        add(["debug"], true)
+                    }
                 }
             }
         }
@@ -78,7 +96,7 @@ tasks.register("koverDump") {
 }
 
 private static Double getPercentage(Project module, String reportPath, coverageType) {
-    def reportFile = new File(module.buildDir, reportPath + "report.xml")
+    def reportFile = new File(module.buildDir, reportPath + "reportMain.xml")
 
     if (reportFile.exists()) {
         def slurp = new XmlSlurper()
@@ -106,7 +124,7 @@ private static Double getPercentage(Project module, String reportPath, coverageT
 private static GString getCoverageHtml(Project module, String reportPath, Double percentage) {
     if (percentage != null) {
         def htmlPath = new File(module.rootProject.buildDir, "reports")
-                .relativePath(new File(module.buildDir, reportPath + "html/index.html"))
+                .relativePath(new File(module.buildDir, reportPath + "htmlMain/index.html"))
 
         return "<tr><td><code>${module.path}</code></td>" +
                 "<td><a href=\"${htmlPath}\">Report</a></td><td>${String.format("%.2f", percentage)}%</td></tr>"
