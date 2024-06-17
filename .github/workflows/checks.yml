@@ -36,13 +36,13 @@ jobs:
       - name: Paparazzi
         run: ./gradlew listitem:verifyPaparazziDebug
       - name: Kover report
-        run: ./gradlew koverHtmlReport koverXmlReport
+        run: ./gradlew koverHtmlReportMain koverXmlReportMain
       - name: Kover dump
         run: ./gradlew koverDump -q
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: ./build/reports/kover/report.xml
+          files: ./build/reports/kover/reportMain.xml
           flags: unittests
           verbose: true
       - name: Upload reports
