@@ -122,10 +122,10 @@ open class ListItem @JvmOverloads constructor(
 
             when {
                 params.isMaterialListLeadingContent -> {
-                    barrierTextStart.referencedIds = barrierTextStart.referencedIds + child.id
+                    barrierTextStart.referencedIds += child.id
                 }
                 params.isMaterialListTrailingContent -> {
-                    barrierTextEnd.referencedIds = barrierTextEnd.referencedIds + child.id
+                    barrierTextEnd.referencedIds += child.id
                 }
             }
         }
