@@ -60,6 +60,10 @@ open class ListItem @JvmOverloads constructor(
                     divider.dividerColor = this.defaultColor
                 }
 
+                getBoolean(R.styleable.ListItem_android_enabled, true).run {
+                    isEnabled = this
+                }
+
                 recycle()
             }
         }
