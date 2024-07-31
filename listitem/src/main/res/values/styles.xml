@@ -5,7 +5,7 @@
 
     <style name="MaterialLists.LeadingIcon">
         <item name="isMaterialListLeadingContent">true</item>
-        <item name="tint">?colorOnSurfaceVariant</item>
+        <item name="tint">@color/leading_icon_color_selector</item>
         <item name="layout_constraintWidth_max">24dp</item>
         <item name="layout_constraintWidth_min">24dp</item>
         <item name="layout_constraintHeight_max">24dp</item>
@@ -15,6 +15,7 @@
         <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
         <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
         <item name="android:layout_marginEnd">@dimen/list_item_space_x4</item>
+        <item name="android:duplicateParentState">true</item>
     </style>
 
     <style name="MaterialLists.LeadingCheckbox">
@@ -99,7 +100,7 @@
 
     <style name="MaterialLists.TrailingIcon">
         <item name="isMaterialListTrailingContent">true</item>
-        <item name="tint">?colorOnSurfaceVariant</item>
+        <item name="tint">@color/trailing_icon_color_selector</item>
         <item name="android:maxWidth">24dp</item>
         <item name="android:maxHeight">24dp</item>
         <item name="layout_constraintStart_toEndOf">@id/barrier_text_end</item>
@@ -107,6 +108,7 @@
         <item name="layout_constraintTop_toTopOf">@id/guide_top</item>
         <item name="layout_constraintBottom_toBottomOf">@id/guide_bottom</item>
         <item name="android:layout_marginStart">@dimen/list_item_space_x4</item>
+        <item name="android:duplicateParentState">true</item>
     </style>
 
     <style name="MaterialLists.TrailingCheckbox">

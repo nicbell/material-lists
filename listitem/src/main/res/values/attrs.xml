@@ -12,6 +12,8 @@
 
         <attr name="dividerVisible" format="boolean" />
         <attr name="dividerTint" format="color" />
+
+        <attr name="android:enabled" />
     </declare-styleable>
 
     <declare-styleable name="ListItem_Layout">
