@@ -66,7 +66,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_headline"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:duplicateParentState="true"
         android:ellipsize="end"
@@ -75,6 +75,7 @@
         android:textColor="@color/headline_text_color_selector"
         app:firstBaselineToTopHeight="@dimen/list_item_headline_first_baseline_to_top"
         app:lastBaselineToBottomHeight="@dimen/list_item_headline_last_baseline_to_bottom"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@+id/txt_support"
         app:layout_constraintEnd_toStartOf="@id/barrier_text_end"
         app:layout_constraintHorizontal_bias="0"
@@ -85,15 +86,17 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_support"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:textAppearance="?textAppearanceBodyMedium"
         android:textColor="?colorOnSurfaceVariant"
         app:firstBaselineToTopHeight="@dimen/list_item_supporting_text_first_baseline_to_top"
         app:lastBaselineToBottomHeight="@dimen/list_item_supporting_text_last_baseline_to_bottom"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="@id/guide_bottom"
-        app:layout_constraintEnd_toEndOf="@id/txt_headline"
+        app:layout_constraintEnd_toStartOf="@id/barrier_text_end"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@id/txt_headline"
         app:layout_constraintTop_toBottomOf="@id/txt_headline"
         app:layout_constraintVertical_chainStyle="packed"
