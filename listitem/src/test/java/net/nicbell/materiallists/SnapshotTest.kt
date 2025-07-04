@@ -2,6 +2,7 @@ package net.nicbell.materiallists
 
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
+import app.cash.paparazzi.detectEnvironment
 import com.android.resources.NightMode
 import org.junit.Rule
 import org.junit.runner.RunWith
@@ -18,7 +19,8 @@ abstract class SnapshotTest(nightMode: NightMode) {
             softButtons = false,
         ),
         theme = "Theme.Material3.DayNight.NoActionBar",
-        maxPercentDifference = 0.01
+        maxPercentDifference = 0.01,
+        environment = detectEnvironment().copy(compileSdkVersion = 34)
     )
 
     companion object {
