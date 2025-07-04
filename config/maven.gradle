@@ -47,10 +47,12 @@ ext.mavenSonaTypeSnapshots = {
 ext.mavenSonaTypeStaging = {
     maven {
         name "staging"
-        url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
-        credentials {
-            username = getLocalOrEnvVar('sonatypeUsername', 'SONATYPE_USERNAME')
-            password = getLocalOrEnvVar('sonatypePassword', 'SONATYPE_PASSWORD')
-        }
+        // Publish to local dir, zip up and deploy to Central manually as publish no longer works
+        url = layout.buildDirectory.dir("releases")
+//        url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+//        credentials {
+//            username = getLocalOrEnvVar('sonatypeUsername', 'SONATYPE_USERNAME')
+//            password = getLocalOrEnvVar('sonatypePassword', 'SONATYPE_PASSWORD')
+//        }
     }
 }

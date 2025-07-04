@@ -1,6 +1,6 @@
 # Material Lists
 
-[![Maven Central](https://img.shields.io/maven-central/v/net.nicbell.material-lists/listitem?color=blue)](https://s01.oss.sonatype.org/content/repositories/releases/net/nicbell/material-lists/listitem/)
+[![Maven Central](https://img.shields.io/maven-central/v/net.nicbell.material-lists/listitem?color=blue)](https://central.sonatype.com/artifact/net.nicbell.material-lists/listitem/overview)
 [![codecov](https://codecov.io/gh/nicbell/material-lists/branch/main/graph/badge.svg?token=YYJ348RZAF)](https://codecov.io/gh/nicbell/material-lists)
 
 An Android XML implementation of Material 3 list items.
