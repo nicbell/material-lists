@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.android.resources.NightMode
 import org.junit.Test
 
-class ListItemTest(nightMode: NightMode) : SnapshotTest(nightMode) {
+class ListItemTest : SnapshotTest() {
     @Test
     fun `ListItem 1 line`() {
         val view = paparazzi.inflate<View>(R.layout.test_one_line_layout)
