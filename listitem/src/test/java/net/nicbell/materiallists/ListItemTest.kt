@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.AppCompatImageView
-import com.android.resources.NightMode
 import org.junit.Test
 
 class ListItemTest : SnapshotTest() {

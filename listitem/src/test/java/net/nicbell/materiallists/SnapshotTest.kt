@@ -5,8 +5,6 @@ import app.cash.paparazzi.Paparazzi
 import app.cash.paparazzi.detectEnvironment
 import com.android.resources.NightMode
 import org.junit.Rule
-import org.junit.runner.RunWith
-import org.junit.runners.Parameterized
 
 @Suppress("UnnecessaryAbstractClass")
 abstract class SnapshotTest {
