@@ -11,8 +11,8 @@ plugins {
 extra.apply {
     // Android SDK and tools
     set("min_sdk_version", 21)
-    set("target_sdk_version", 35)
-    set("compile_sdk_version", 35)
+    set("target_sdk_version", 36)
+    set("compile_sdk_version", 36)
 }
 
 apply(from = "$rootDir/config/versioning.gradle")
